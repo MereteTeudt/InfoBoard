@@ -1,0 +1,162 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+@model Board.Models.InfoBoardModel
+<div class="container">
+    <div class="jumbotron col-md-12">
+        <h1 class="display-4">Administration</h1>
+        <p>Herfra kan du redigere i InfoBoard</p>
+    </div>
+    <div class="">
+        <div class="card text-center p-0">
+            <div class="card-header">
+                Ugens Tema
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    Citat
+                    <div class="d-flex">
+                        <div class="col-md-6"></div>
+                        <div class="text-right col-md-6">
+                            <button type="button" class="btn btn-primary text-right" data-toggle="modal" data-target="#QuoteModal">
+                                Rediger
+                            </button>
+                        </div>
+                    </div>
+                </li>
+                <div class="modal fade" id="QuoteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalCenterTitle">Ugens Citat</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body text-left">
+                                @using (Html.BeginForm("Edit", "Administration", FormMethod.Post, new { @class = "form-horizontal" }))
+                                {
+                                    <label for="quoteText" class="col-md-3 control-label">Citat</label>
+                                    <div class="form-group col-md-9">
+                                        @Html.TextBoxFor(model => model.WeeklyTheme.QuoteModel.QuoteText, new { @class = "form-control"})
+                                    </div>
+                                    <label for="quoteAuthor" class="col-md-3 control-label">Forfatter</label>
+                                    <div class="form-group col-md-9">
+                                        @Html.TextBoxFor(model => model.WeeklyTheme.QuoteModel.QuoteAuthor, new { @class = "form-control" })
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-offset-2 col-sm-10">
+                                            <button class="btn btn-info" type="submit">Submit</button>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Anuller</button>
+                                <button type="button" class="btn btn-primary">Gem</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <li class="list-group-item">
+                    Morgensamling
+                    <div class="d-flex">
+                        <div class="col-md-6"></div>
+                        <div class="text-right col-md-6">
+                            <button type="button" class="btn btn-primary text-right" data-toggle="modal" data-target="#AssemblyModal">
+                                Rediger
+                            </button>
+                        </div>
+                    </div>
+                </li>
+                <div class="modal fade" id="AssemblyModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body text-left">
+                                <div class="d-flex">
+                                    <div class="col-md-3">Tema: </div>@Html.TextBox("Citat", null, new { @class = "col-md-9" })
+                                </div>
+                                <div class="d-flex">
+                                    <div class="col-md-3">Billede: </div>@Html.TextBox("Forfatter", null, new { @class = "col-md-9" })
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Save changes</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ul>
+        </div>
+        <div class="card text-center p-0">
+            <div class="card-header">
+                Ugens Menu
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    Mandag
+                    <div class="d-flex">
+                        <div class="col-md-6"></div>
+                        <div class="text-right col-md-6">
+                            <button type="button" class="btn btn-primary text-right" data-toggle="modal" data-target="#exampleModalCenter">
+                                Rediger
+                            </button>
+                        </div>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    Tirsdag
+                    <div class="d-flex">
+                        <div class="col-md-6"></div>
+                        <div class="text-right col-md-6">
+                            <button type="button" class="btn btn-primary text-right" data-toggle="modal" data-target="#exampleModalCenter">
+                                Rediger
+                            </button>
+                        </div>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    Onsdag
+                    <div class="d-flex">
+                        <div class="col-md-6"></div>
+                        <div class="text-right col-md-6">
+                            <button type="button" class="btn btn-primary text-right" data-toggle="modal" data-target="#exampleModalCenter">
+                                Rediger
+                            </button>
+                        </div>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    Torsdag
+                    <div class="d-flex">
+                        <div class="col-md-6"></div>
+                        <div class="text-right col-md-6">
+                            <button type="button" class="btn btn-primary text-right" data-toggle="modal" data-target="#exampleModalCenter">
+                                Rediger
+                            </button>
+                        </div>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    Fredag
+                    <div class="d-flex">
+                        <div class="col-md-6"></div>
+                        <div class="text-right col-md-6">
+                            <button type="button" class="btn btn-primary text-right" data-toggle="modal" data-target="#exampleModalCenter">
+                                Rediger
+                            </button>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

@@ -7,34 +7,47 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
-<body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+<body class="BodyMargin">
+    <div class="container-fluid">
+        <div class="col-md-12 p-0 d-flex flex-wrap fixed-top justify-content-center AspITGreenGradient">
+            <div class="col-md-2 p-0">
+                <img class="img-fluid" src="~/Images/AspitImages/15309---005.jpg" />
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
+            <div class="col-md-2 p-0">
+                <img class="img-fluid" src="~/Images/AspitImages/15309---010.jpg" />
+            </div>
+            <div class="col-md-2 p-0">
+                <img class="img-fluid" src="~/Images/AspitImages/15309---015.jpg" />
+            </div>
+            <div class="col-md-2 p-0">
+                <img class="img-fluid" src="~/Images/AspitImages/15309---021.jpg" />
+            </div>
+            <div class="col-md-2 p-0">
+                <img class="img-fluid" src="~/Images/AspitImages/15309---028.jpg" />
+            </div>
+            <div class="col-md-2 p-0">
+                <img class="img-fluid" src="~/Images/AspitImages/15309---036.jpg" />
+            </div>
+            <div class="col-md-12 navbar shadow navbar-default">
+                <div class="navbar-left">
+                    <a class="navbar-brand m-1" href="#">
+                        <img src="~/Images/logo.png" width="50" height="50" alt="">
+                    </a>
+                    <h2 class="navbar-text AspITGreenFont">AspIT Trekanten</h2>
+                </div>
+                <h2 class="navbar-text navbar-right">@DateTime.Now.ToString("HH:mm dd-MM-yy")</h2>
             </div>
         </div>
     </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
+    <div class="body-content">
+        <div class="row">
+            @RenderBody()
+            <hr class="col-md-12" />
+            <footer>
+                <p>&copy; @DateTime.Now.Year - AspIT</p>
+            </footer>
+        </div>
     </div>
-
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)

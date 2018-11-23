@@ -1,0 +1,23 @@
+﻿.AspITGreenBackGround {
+    background-color: #005d31;
+}
+.AspITGreenFont {
+    color: #005d31;
+}
+.AspITGreenGradient {
+    background-image: linear-gradient(to right, white, #005d31);
+}
+.BodyMargin {
+    margin-top: 300px;
+    padding: 0;
+}
+.CardHeader {
+    color: white;
+    background-color: #005d31;
+    font-size: 20px;
+}
+.Card {
+    margin: 1rem 0 1rem 0;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)
+}
+
