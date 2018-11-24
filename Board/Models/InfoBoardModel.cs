@@ -7,10 +7,43 @@ namespace Board.Models
 {
     public class InfoBoardModel
     {
-        public string CurrentWeek = (DateTime.Now.DayOfYear / 7).ToString();
+        private string currentWeek;
 
-        public WeeklyMenuModel WeeklyMenu { get; set; }
+        private WeeklyMenuModel weeklyMenu;
 
-        public WeeklyThemeModel WeeklyTheme { get; set; }
+        private WeeklyThemeModel weeklyTheme;
+
+        public InfoBoardModel()
+        {
+            CurrentWeek = (DateTime.Now.DayOfYear / 7).ToString();
+            WeeklyMenu = new WeeklyMenuModel();
+            WeeklyTheme = new WeeklyThemeModel();
+        }
+
+        public string CurrentWeek { get; set; }
+
+        public WeeklyMenuModel WeeklyMenu
+        {
+            get
+            {
+                return weeklyMenu;
+            }
+            set
+            {
+                weeklyMenu = value;
+            }
+        }
+
+        public WeeklyThemeModel WeeklyTheme
+        {
+            get
+            {
+                return weeklyTheme;
+            }
+            set
+            {
+                weeklyTheme = value;
+            }
+        }
     }
 }

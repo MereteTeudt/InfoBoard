@@ -7,8 +7,14 @@ namespace Board.Models
 {
     public class WeeklyThemeModel
     {
-        public QuoteModel QuoteModel { get; set; }
+        public WeeklyThemeModel()
+        {
+            Quote = new QuoteModel();
 
-        public string ImagePath { get; set; }
+            Assembly = new AssemblyModel();
+        }
+        public QuoteModel Quote { get; set; }
+
+        public AssemblyModel Assembly { get; set; }
     }
 }

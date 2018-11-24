@@ -7,6 +7,19 @@ namespace Board.Models
 {
     public class WeeklyMenuModel
     {
+        public WeeklyMenuModel()
+        {
+            Monday = new MealModel();
+
+            Tuesday = new MealModel();
+
+            Wednesday = new MealModel();
+
+            Thursday = new MealModel();
+
+            Friday = new MealModel();
+        }
+
         public MealModel Monday { get; set; }
 
         public MealModel Tuesday { get; set; }
