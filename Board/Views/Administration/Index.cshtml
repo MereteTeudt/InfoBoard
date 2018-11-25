@@ -146,25 +146,77 @@
                         <div class="modal-body text-left">
                             @using (Html.BeginForm("EditMenu", "Administration", FormMethod.Post, new { @class = "form-horizontal" }))
                             {
-                                <label for="Mandag" class="col-md-3 control-label">Citat</label>
-                                <div class="form-group col-md-9">
-                                    @Html.TextBoxFor(model => model.WeeklyMenu.Monday, new { @class = "form-control" })
+                                <h2>Mandag</h2>
+                                <div class="form-row">
+                                    <div class="form-group col-md-4">
+                                        <label for="Name" class="control-label">Navn</label>
+                                        @Html.TextBoxFor(model => model.WeeklyMenu.Monday.Name, new { @class = "form-control" })
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="RecipePath" class="control-label">Opskrift</label>
+                                        @Html.TextBoxFor(model => model.WeeklyMenu.Monday.RecipePath, new { @class = "form-control" })
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="ImagePath" class="control-label">Billede</label>
+                                        @Html.TextBoxFor(model => model.WeeklyMenu.Monday.ImagePath, new { @class = "form-control" })
+                                    </div>
                                 </div>
-                                <label for="Tirsdag" class="col-md-3 control-label">Forfatter</label>
-                                <div class="form-group col-md-9">
-                                    @Html.TextBoxFor(model => model.WeeklyMenu.Tuesday, new { @class = "form-control" })
-                                </div>
-                                <label for="Onsdag" class="col-md-3 control-label">Citat</label>
-                                <div class="form-group col-md-9">
-                                    @Html.TextBoxFor(model => model.WeeklyMenu.Wednesday, new { @class = "form-control" })
-                                </div>
-                                <label for="Torsdag" class="col-md-3 control-label">Forfatter</label>
-                                <div class="form-group col-md-9">
-                                    @Html.TextBoxFor(model => model.WeeklyMenu.Thursday, new { @class = "form-control" })
-                                </div>
-                                <label for="Fredag" class="col-md-3 control-label">Citat</label>
-                                <div class="form-group col-md-9">
-                                    @Html.TextBoxFor(model => model.WeeklyMenu.Friday, new { @class = "form-control" })
+                                <h2>Tirsdag</h2>
+                                <div class="form-row">
+                                    <div class="form-group col-md-4">
+                                        <label for="Name" class="control-label">Navn</label>
+                                        @Html.TextBoxFor(model => model.WeeklyMenu.Monday.Name, new { @class = "form-control" })
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="RecipePath" class="control-label">Opskrift</label>
+                                        @Html.TextBoxFor(model => model.WeeklyMenu.Monday.RecipePath, new { @class = "form-control" })
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="ImagePath" class="control-label">Billede</label>
+                                        @Html.TextBoxFor(model => model.WeeklyMenu.Monday.ImagePath, new { @class = "form-control" })
+                                    </div>
+                                </div><h2>Onsdag</h2>
+                                <div class="form-row">
+                                    <div class="form-group col-md-4">
+                                        <label for="Name" class="control-label">Navn</label>
+                                        @Html.TextBoxFor(model => model.WeeklyMenu.Monday.Name, new { @class = "form-control" })
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="RecipePath" class="control-label">Opskrift</label>
+                                        @Html.TextBoxFor(model => model.WeeklyMenu.Monday.RecipePath, new { @class = "form-control" })
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="ImagePath" class="control-label">Billede</label>
+                                        @Html.TextBoxFor(model => model.WeeklyMenu.Monday.ImagePath, new { @class = "form-control" })
+                                    </div>
+                                </div><h2>Torsdag</h2>
+                                <div class="form-row">
+                                    <div class="form-group col-md-4">
+                                        <label for="Name" class="control-label">Navn</label>
+                                        @Html.TextBoxFor(model => model.WeeklyMenu.Monday.Name, new { @class = "form-control" })
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="RecipePath" class="control-label">Opskrift</label>
+                                        @Html.TextBoxFor(model => model.WeeklyMenu.Monday.RecipePath, new { @class = "form-control" })
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="ImagePath" class="control-label">Billede</label>
+                                        @Html.TextBoxFor(model => model.WeeklyMenu.Monday.ImagePath, new { @class = "form-control" })
+                                    </div>
+                                </div><h2>Fredag</h2>
+                                <div class="form-row">
+                                    <div class="form-group col-md-4">
+                                        <label for="Name" class="control-label">Navn</label>
+                                        @Html.TextBoxFor(model => model.WeeklyMenu.Monday.Name, new { @class = "form-control" })
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="RecipePath" class="control-label">Opskrift</label>
+                                        @Html.TextBoxFor(model => model.WeeklyMenu.Monday.RecipePath, new { @class = "form-control" })
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="ImagePath" class="control-label">Billede</label>
+                                        @Html.TextBoxFor(model => model.WeeklyMenu.Monday.ImagePath, new { @class = "form-control" })
+                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="col-sm-offset-2 col-sm-10">
