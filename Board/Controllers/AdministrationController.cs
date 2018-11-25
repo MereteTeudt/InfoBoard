@@ -27,5 +27,11 @@ namespace Board.Controllers
             infoBoardModel.WeeklyTheme.Assembly = assembly;
             return View();
         }
+
+        public ActionResult EditMenu(Models.WeeklyMenuModel menu)
+        {
+            infoBoardModel.WeeklyMenu = menu;
+            return View();
+        }
     }
 }
