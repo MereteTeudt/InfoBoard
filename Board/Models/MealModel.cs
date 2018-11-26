@@ -7,14 +7,17 @@ namespace Board.Models
 {
     public class MealModel
     {
-        public MealModel()
+        public MealModel(string name, string recipe, string image)
         {
-            Name = "Name";
+            Name = name;
 
-            RecipePath = "RecipePath";
+            RecipePath = recipe;
 
-            ImagePath = "ImagePath";
+            ImagePath = image;
         }
+
+        public MealModel()
+        { }
         public string Name { get; set; }
 
         public string RecipePath { get; set; }

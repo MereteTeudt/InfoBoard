@@ -19,7 +19,6 @@ namespace Board.Models
 
             Friday = new MealModel();
         }
-
         public MealModel Monday { get; set; }
 
         public MealModel Tuesday { get; set; }

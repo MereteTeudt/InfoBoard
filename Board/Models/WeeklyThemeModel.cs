@@ -10,7 +10,6 @@ namespace Board.Models
         public WeeklyThemeModel()
         {
             Quote = new QuoteModel();
-
             Assembly = new AssemblyModel();
         }
         public QuoteModel Quote { get; set; }

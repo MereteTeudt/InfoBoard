@@ -7,13 +7,6 @@ namespace Board.Models
 {
     public class AssemblyModel
     {
-        public AssemblyModel()
-        {
-            AssemblyTheme = "ThemeName";
-
-            ImagePath = "ImagePath";
-        }
-
         public string AssemblyTheme { get; set; }
 
         public string ImagePath { get; set; }

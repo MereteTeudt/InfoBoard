@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Board.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,30 +9,30 @@ namespace Board.Controllers
 {
     public class AdministrationController : Controller
     {
-        public Models.InfoBoardModel infoBoardModel = new Models.InfoBoardModel();
+        public InfoBoardModel infoBoardModel = new InfoBoardModel();
         // GET: Administration
-        public ActionResult Index(Models.InfoBoardModel infoBoard)
+        public ActionResult Index()
         {
-            infoBoard = infoBoardModel;
-            return View("Index", infoBoard);
+            infoBoardModel = InfoBoardModel.testBoard();
+            return View("Index", infoBoardModel);
         }
 
-        public ActionResult EditQuote(Models.QuoteModel quote)
+        public ActionResult EditQuote(InfoBoardModel infoBoard)
         {
-            infoBoardModel.WeeklyTheme.Quote = quote;
-            return View();
+            infoBoardModel.WeeklyTheme.Quote = infoBoard.WeeklyTheme.Quote;
+            return View("Index", infoBoardModel);
         }
 
-        public ActionResult EditTheme(Models.AssemblyModel assembly)
+        public ActionResult EditTheme(InfoBoardModel infoBoard)
         {
-            infoBoardModel.WeeklyTheme.Assembly = assembly;
-            return View();
+            infoBoardModel.WeeklyTheme.Assembly = infoBoard.WeeklyTheme.Assembly;
+            return View("Index", infoBoardModel);
         }
 
-        public ActionResult EditMenu(Models.WeeklyMenuModel menu)
+        public ActionResult EditMenu(InfoBoardModel infoBoard)
         {
-            infoBoardModel.WeeklyMenu = menu;
-            return View();
+            infoBoardModel.WeeklyMenu = infoBoard.WeeklyMenu;
+            return View("Index", infoBoardModel);
         }
     }
 }
