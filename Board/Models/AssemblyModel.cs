@@ -10,5 +10,7 @@ namespace Board.Models
         public string AssemblyTheme { get; set; }
 
         public string ImagePath { get; set; }
+
+        public HttpPostedFileBase ImageFile { get; set; }
     }
 }

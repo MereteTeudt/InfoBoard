@@ -18,6 +18,15 @@ namespace Board.Models
             Thursday = new MealModel();
 
             Friday = new MealModel();
+
+            Week = new List<MealModel>
+            {
+                Monday,
+                Tuesday,
+                Wednesday,
+                Thursday,
+                Friday
+            };
         }
         public MealModel Monday { get; set; }
 
@@ -28,5 +37,7 @@ namespace Board.Models
         public MealModel Thursday { get; set; }
 
         public MealModel Friday { get; set; }
+
+        public List<MealModel> Week { get; set; }
     }
 }

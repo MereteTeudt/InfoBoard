@@ -12,12 +12,17 @@
     <div class="container">
         <div class="">
             <div class="card text-center p-0">
-                <div class="card-header">
-                    Ugens Tema
+                <div class="card-header d-flex">
+                    <div class="col-md-4"></div>
+                    <h5 class="card-title col-md-4">Citat</h5>
+                    <div class="col-md-4 text-right">
+                        <button type="button" class="btn btn-primary text-right" data-toggle="modal" data-target="#QuoteModal">
+                            Rediger
+                        </button>
+                    </div>
                 </div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">
-                        <h5 class="card-title">Citat</h5>
                         <div class="d-flex">
                             <div class="col-md-10">
                                 <blockquote class="blockquote mb-0">
@@ -31,29 +36,6 @@
                                     </footer>
                                 </blockquote>
                             </div>
-                        </div>
-                        <div class="text-right col-md-12">
-                            <button type="button" class="btn btn-primary text-right" data-toggle="modal" data-target="#QuoteModal">
-                                Rediger
-                            </button>
-                        </div>
-                    </li>
-                    <li class="list-group-item">
-                        <h5 class="card-title">Morgensamling</h5>
-                        <div class="d-flex">
-                            <div class="col-md-4">
-                                <p>
-                                    Overskrift: @Html.DisplayTextFor(model => model.WeeklyTheme.Assembly.AssemblyTheme)
-                                </p>
-                            </div>
-                            <div class="col-md-4">
-                                <img src="@Url.Content(Model.WeeklyTheme.Assembly.ImagePath)" alt="Billede" class="img-thumbnail card-img" />
-                            </div>
-                        </div>
-                        <div class="text-right col-md-12">
-                            <button type="button" class="btn btn-primary text-right" data-toggle="modal" data-target="#AssemblyModal">
-                                Rediger
-                            </button>
                         </div>
                     </li>
                 </ul>
@@ -89,6 +71,29 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="card text-center p-0">
+                <div class="card-header d-flex">
+                    <div class="col-md-4"></div>
+                    <h5 class="card-title col-md-4">Morgensamling</h5>
+                    <div class="col-md-4 text-right">
+                        <button type="button" class="btn btn-primary text-right" data-toggle="modal" data-target="#AssemblyModal">
+                            Rediger
+                        </button>
+                    </div>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <div class="d-flex">
+                            <div class="col-md-4">
+                                <img src="@Url.Content(Model.WeeklyTheme.Assembly.ImagePath)" alt="Billede" class="img-thumbnail" />
+                            </div>
+                            <div class="col-md-8 text-left p-2">
+                                <h2 class="display-4 text-uppercase">Tema: @Html.DisplayTextFor(model => model.WeeklyTheme.Assembly.AssemblyTheme)</h2>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
                 <!--Ugens Morgensamlinger Modal-->
                 <div class="modal fade" id="AssemblyModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered" role="document">
@@ -108,7 +113,7 @@
                                     </div>
                                     <label for="quoteAuthor" class="col-md-3 control-label">Billede</label>
                                     <div class="form-group col-md-9">
-                                        @Html.TextBoxFor(model => model.WeeklyTheme.Assembly.ImagePath, new { @class = "form-control" })
+                                        @Html.TextBoxFor(model => model.WeeklyTheme.Assembly.ImageFile, new { type = "file" })
                                     </div>
                                     <div class="form-group">
                                         <div class="text-right">
@@ -124,15 +129,20 @@
             </div>
             <!--Ugens Menu-->
             <div class="card text-center p-0">
-                <div class="card-header">
-                    Ugens Menu
+                <div class="card-header d-flex">
+                    <div class="col-md-4"></div>
+                    <h5 class="card-title col-md-4">Menu</h5>
+                    <div class="col-md-4 text-right">
+                        <button type="button" class="btn btn-primary text-right" data-toggle="modal" data-target="#MenuModal">
+                            Rediger
+                        </button>
+                    </div>
                 </div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">
-                        <h5 class="card-title">Menu</h5>
                         <div>
                             <div class="col-md-12">
-                                <table class="table table-bordered table-sm">
+                                <table class="table table-bordered table-sm m-2">
                                     <tbody>
                                         <tr>
                                             <th scope="row">Mandag</th>
@@ -167,11 +177,6 @@
                                     </tbody>
                                 </table>
                             </div>
-                            <div class="text-right col-md-12">
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#MenuModal">
-                                    Rediger
-                                </button>
-                            </div>
                         </div>
                     </li>
                 </ul>
@@ -199,8 +204,8 @@
                                             @Html.TextBoxFor(model => model.WeeklyMenu.Monday.RecipePath, new { @class = "form-control" })
                                         </div>
                                         <div class="form-group col-md-4">
-                                            <label for="ImagePath" class="control-label">Billede</label>
-                                            @Html.TextBoxFor(model => model.WeeklyMenu.Monday.ImagePath, new { @class = "form-control" })
+                                            <label for="ImageFile" class="control-label">Billede</label>
+                                            @Html.TextBoxFor(model => model.WeeklyMenu.Monday.ImageFile, new { type = "file" })
                                         </div>
                                     </div>
                                     <hr class="col-md-12" />
@@ -215,8 +220,8 @@
                                             @Html.TextBoxFor(model => model.WeeklyMenu.Tuesday.RecipePath, new { @class = "form-control" })
                                         </div>
                                         <div class="form-group col-md-4">
-                                            <label for="ImagePath" class="control-label">Billede</label>
-                                            @Html.TextBoxFor(model => model.WeeklyMenu.Tuesday.ImagePath, new { @class = "form-control" })
+                                            <label for="ImageFile" class="control-label">Billede</label>
+                                            @Html.TextBoxFor(model => model.WeeklyMenu.Tuesday.ImageFile, new { type = "file" })
                                         </div>
                                     </div>
                                     <hr class="col-md-12" />
@@ -231,8 +236,8 @@
                                             @Html.TextBoxFor(model => model.WeeklyMenu.Wednesday.RecipePath, new { @class = "form-control" })
                                         </div>
                                         <div class="form-group col-md-4">
-                                            <label for="ImagePath" class="control-label">Billede</label>
-                                            @Html.TextBoxFor(model => model.WeeklyMenu.Wednesday.ImagePath, new { @class = "form-control" })
+                                            <label for="ImageFile" class="control-label">Billede</label>
+                                            @Html.TextBoxFor(model => model.WeeklyMenu.Wednesday.ImageFile, new { type = "file" })
                                         </div>
                                     </div>
                                     <hr class="col-md-12" />
@@ -247,8 +252,8 @@
                                             @Html.TextBoxFor(model => model.WeeklyMenu.Thursday.RecipePath, new { @class = "form-control" })
                                         </div>
                                         <div class="form-group col-md-4">
-                                            <label for="ImagePath" class="control-label">Billede</label>
-                                            @Html.TextBoxFor(model => model.WeeklyMenu.Thursday.ImagePath, new { @class = "form-control" })
+                                            <label for="ImageFile" class="control-label">Billede</label>
+                                            @Html.TextBoxFor(model => model.WeeklyMenu.Thursday.ImageFile, new { type = "file" })
                                         </div>
                                     </div>
                                     <hr class="col-md-12" />
@@ -263,8 +268,8 @@
                                             @Html.TextBoxFor(model => model.WeeklyMenu.Friday.RecipePath, new { @class = "form-control" })
                                         </div>
                                         <div class="form-group col-md-4">
-                                            <label for="ImagePath" class="control-label">Billede</label>
-                                            @Html.TextBoxFor(model => model.WeeklyMenu.Friday.ImagePath, new { @class = "form-control" })
+                                            <label for="ImageFile" class="control-label">Billede</label>
+                                            @Html.TextBoxFor(model => model.WeeklyMenu.Friday.ImageFile, new { type = "file" })
                                         </div>
                                     </div>
                                     <hr class="col-md-12" />
