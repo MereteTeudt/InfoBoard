@@ -19,7 +19,7 @@
                     <li class="list-group-item">
                         <h5 class="card-title">Citat</h5>
                         <div class="d-flex">
-                            <div class="col-md-4">
+                            <div class="col-md-10">
                                 <blockquote class="blockquote mb-0">
                                     <p>
                                         @Html.DisplayTextFor(model => model.WeeklyTheme.Quote.QuoteText)
@@ -31,11 +31,11 @@
                                     </footer>
                                 </blockquote>
                             </div>
-                            <div class="text-right col-md-8">
-                                <button type="button" class="btn btn-primary text-right" data-toggle="modal" data-target="#QuoteModal">
-                                    Rediger
-                                </button>
-                            </div>
+                        </div>
+                        <div class="text-right col-md-12">
+                            <button type="button" class="btn btn-primary text-right" data-toggle="modal" data-target="#QuoteModal">
+                                Rediger
+                            </button>
                         </div>
                     </li>
                     <li class="list-group-item">
@@ -47,13 +47,13 @@
                                 </p>
                             </div>
                             <div class="col-md-4">
-                                <img src="@Html.DisplayTextFor(model => model.WeeklyTheme.Assembly.ImagePath)" alt"Billede" class="img-thumbnail card-img" />
+                                <img src="@Url.Content(Model.WeeklyTheme.Assembly.ImagePath)" alt="Billede" class="img-thumbnail card-img" />
                             </div>
-                            <div class="text-right col-md-4">
-                                <button type="button" class="btn btn-primary text-right" data-toggle="modal" data-target="#AssemblyModal">
-                                    Rediger
-                                </button>
-                            </div>
+                        </div>
+                        <div class="text-right col-md-12">
+                            <button type="button" class="btn btn-primary text-right" data-toggle="modal" data-target="#AssemblyModal">
+                                Rediger
+                            </button>
                         </div>
                     </li>
                 </ul>
@@ -130,44 +130,44 @@
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">
                         <h5 class="card-title">Menu</h5>
-                        <div class="d-flex">
-                            <div class="col-md-10">
-                                <table class="table table-sm">
+                        <div>
+                            <div class="col-md-12">
+                                <table class="table table-bordered table-sm">
                                     <tbody>
                                         <tr>
                                             <th scope="row">Mandag</th>
                                             <td>@Html.DisplayTextFor(model => model.WeeklyMenu.Monday.Name)</td>
                                             <td>@Html.DisplayTextFor(model => model.WeeklyMenu.Monday.RecipePath)</td>
-                                            <td><img src="@Html.DisplayTextFor(model => model.WeeklyMenu.Tuesday.ImagePath)" alt="Billede" class="img-thumbnail" /></td>
+                                            <td><img src="@Url.Content(Model.WeeklyMenu.Monday.ImagePath)" alt="Billede" class="img-thumbnail" /></td>
                                         </tr>
                                         <tr>
                                             <th scope="row">Tirsdag</th>
                                             <td>@Html.DisplayTextFor(model => model.WeeklyMenu.Tuesday.Name)</td>
                                             <td>@Html.DisplayTextFor(model => model.WeeklyMenu.Tuesday.RecipePath)</td>
-                                            <td><img src="@Html.DisplayTextFor(model => model.WeeklyMenu.Monday.ImagePath)" alt="Billede" class="img-thumbnail" /></td>
+                                            <td><img src="@Url.Content(Model.WeeklyMenu.Tuesday.ImagePath)" alt="Billede" class="img-thumbnail" /></td>
                                         </tr>
                                         <tr>
                                             <th scope="row">Onsdag</th>
                                             <td>@Html.DisplayTextFor(model => model.WeeklyMenu.Wednesday.Name)</td>
                                             <td>@Html.DisplayTextFor(model => model.WeeklyMenu.Wednesday.RecipePath)</td>
-                                            <td><img src="@Html.DisplayTextFor(model => model.WeeklyMenu.Wednesday.ImagePath)" alt="Billede" class="img-thumbnail" /></td>
+                                            <td><img src="@Url.Content(Model.WeeklyMenu.Wednesday.ImagePath)" alt="Billede" class="img-thumbnail" /></td>
                                         </tr>
                                         <tr>
                                             <th scope="row">Torsdag</th>
                                             <td>@Html.DisplayTextFor(model => model.WeeklyMenu.Thursday.Name)</td>
                                             <td>@Html.DisplayTextFor(model => model.WeeklyMenu.Thursday.RecipePath)</td>
-                                            <td><img src="@Html.DisplayTextFor(model => model.WeeklyMenu.Thursday.ImagePath)" alt="Billede" class="img-thumbnail" /></td>
+                                            <td><img src="@Url.Content(Model.WeeklyMenu.Thursday.ImagePath)" alt="Billede" class="img-thumbnail" /></td>
                                         </tr>
                                         <tr>
                                             <th scope="row">Fredag</th>
                                             <td>@Html.DisplayTextFor(model => model.WeeklyMenu.Friday.Name)</td>
                                             <td>@Html.DisplayTextFor(model => model.WeeklyMenu.Friday.RecipePath)</td>
-                                            <td><img src="@Html.DisplayTextFor(model => model.WeeklyMenu.Friday.ImagePath)" alt="Billede" class="img-thumbnail" /></td>
+                                            <td><img src="@Url.Content(Model.WeeklyMenu.Friday.ImagePath)" alt="Billede" class="img-thumbnail" /></td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
-                            <div class="d-flex text-right align-items-end justify-content-end col-md-2">
+                            <div class="text-right col-md-12">
                                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#MenuModal">
                                     Rediger
                                 </button>

@@ -54,13 +54,13 @@ namespace Board.Models
 
             infoBoardModel.WeeklyTheme.Assembly = new AssemblyModel();
             infoBoardModel.WeeklyTheme.Assembly.AssemblyTheme = "Flex-job";
-            infoBoardModel.WeeklyTheme.Assembly.ImagePath = "TestData";
+            infoBoardModel.WeeklyTheme.Assembly.ImagePath = "~/Images/logo.png";
 
-            infoBoardModel.WeeklyMenu.Monday = new MealModel("Boller i karry", "www.karolines.dk/boller_i_karry", "www.karolines.dk/boller_i_karry_img");
-            infoBoardModel.WeeklyMenu.Tuesday = new MealModel("Spaghetti og kødboller", "www.karolines.dk/spaghetti_og_kødboller", "www.karolines.dk/spaghetti_og_kødboller_img");
-            infoBoardModel.WeeklyMenu.Wednesday = new MealModel("Ragout", "www.karolines.dk/ragout", "www.karolines.dk/ragout_img");
-            infoBoardModel.WeeklyMenu.Thursday = new MealModel("Lasagne", "www.karolines.dk/lasagne", "www.karolines.dk/lasagne_img");
-            infoBoardModel.WeeklyMenu.Friday = new MealModel("Pizza", "www.karolines.dk/pizza", "www.karolines.dk/pizza_img");
+            infoBoardModel.WeeklyMenu.Monday = new MealModel("Boller i karry", "www.karolines.dk/boller_i_karry", "~/Images/InfoBoardFood/RecipeOne.jpeg");
+            infoBoardModel.WeeklyMenu.Tuesday = new MealModel("Spaghetti og kødboller", "www.karolines.dk/spaghetti_og_kødboller", "~/Images/InfoBoardFood/RecipeThree.jpeg");
+            infoBoardModel.WeeklyMenu.Wednesday = new MealModel("Ragout", "www.karolines.dk/ragout", "~/Images/InfoBoardFood/RecipeThree.jpeg");
+            infoBoardModel.WeeklyMenu.Thursday = new MealModel("Lasagne", "www.karolines.dk/lasagne", "~/Images/InfoBoardFood/RecipeOne.jpeg");
+            infoBoardModel.WeeklyMenu.Friday = new MealModel("Pizza", "www.karolines.dk/pizza", "~/Images/InfoBoardFood/RecipeThree.jpeg");
 
             return infoBoardModel;
         }
