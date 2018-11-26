@@ -9,44 +9,48 @@
 </head>
 <body class="BodyMargin">
     <div class="container-fluid">
-        <div class="col-md-12 p-0 d-flex flex-wrap fixed-top justify-content-center AspITGreenGradient">
-            <div class="col-md-2 p-0">
-                <img class="img-fluid" src="~/Images/AspitImages/15309---005.jpg" />
-            </div>
-            <div class="col-md-2 p-0">
-                <img class="img-fluid" src="~/Images/AspitImages/15309---010.jpg" />
-            </div>
-            <div class="col-md-2 p-0">
-                <img class="img-fluid" src="~/Images/AspitImages/15309---015.jpg" />
-            </div>
-            <div class="col-md-2 p-0">
-                <img class="img-fluid" src="~/Images/AspitImages/15309---021.jpg" />
-            </div>
-            <div class="col-md-2 p-0">
-                <img class="img-fluid" src="~/Images/AspitImages/15309---028.jpg" />
-            </div>
-            <div class="col-md-2 p-0">
-                <img class="img-fluid" src="~/Images/AspitImages/15309---036.jpg" />
-            </div>
-            <div class="col-md-12 navbar shadow navbar-default">
-                <div class="navbar-left">
-                    <a class="navbar-brand m-1" href="#">
-                        <img src="~/Images/logo.png" width="50" height="50" alt="">
-                    </a>
-                    <h2 class="navbar-text AspITGreenFont">AspIT Trekanten</h2>
+        <div class="row">
+            <div class="col-md-12 p-0 d-flex flex-wrap fixed-top justify-content-center AspITGreenGradient">
+                <div class="col-md-2 p-0">
+                    <img class="img-fluid" src="~/Images/AspitImages/15309---005.jpg" />
                 </div>
-                <h2 class="navbar-text navbar-right">@DateTime.Now.ToString("HH:mm dd-MM-yy")</h2>
+                <div class="col-md-2 p-0">
+                    <img class="img-fluid" src="~/Images/AspitImages/15309---010.jpg" />
+                </div>
+                <div class="col-md-2 p-0">
+                    <img class="img-fluid" src="~/Images/AspitImages/15309---015.jpg" />
+                </div>
+                <div class="col-md-2 p-0">
+                    <img class="img-fluid" src="~/Images/AspitImages/15309---021.jpg" />
+                </div>
+                <div class="col-md-2 p-0">
+                    <img class="img-fluid" src="~/Images/AspitImages/15309---028.jpg" />
+                </div>
+                <div class="col-md-2 p-0">
+                    <img class="img-fluid" src="~/Images/AspitImages/15309---036.jpg" />
+                </div>
+                <div class="col-md-12 navbar shadow navbar-default">
+                    <div class="navbar-left">
+                        <a class="navbar-brand m-1" href="#">
+                            <img src="~/Images/logo.png" width="50" height="50" alt="">
+                        </a>
+                        <h2 class="navbar-text AspITGreenFont">AspIT Trekanten</h2>
+                    </div>
+                    <h2 class="navbar-text navbar-right">@DateTime.Now.ToString("HH:mm dd-MM-yy")</h2>
+                </div>
             </div>
         </div>
     </div>
-    <div class="body-content">
+    <div class="body-content container-fluid p-0">
         <div class="row">
-            @RenderBody()
-            <hr class="col-md-12" />
-            <footer>
-                <p>&copy; @DateTime.Now.Year - AspIT</p>
-            </footer>
         </div>
+            @RenderBody()
+        </div>
+    <div>
+        <hr/>
+        <footer>
+            <p>&copy; @DateTime.Now.Year - AspIT</p>
+        </footer>
     </div>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
