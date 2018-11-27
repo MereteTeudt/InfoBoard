@@ -31,46 +31,52 @@
         <div class="card Card">
             <div class="d-flex card-body">
                 <div class="col-md-6 p-2">
-                    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
-                        <div id="slideshow" class="carousel-inner">
-                            <div id="MondaySlide" class="carousel-item active" onchange="Activate(this.id)">
+                    <div id="slideshow" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner col-md-12 m-0">
+                            <div id="MondaySlide" class="carousel-item active">
                                 <img class="d-block w-100 img-thumbnail" src="@Url.Content(Model.WeeklyMenu.Monday.ImagePath)" alt="First slide">
                             </div>
-                            <div id="TuesdaySlide" class="carousel-item" onchange="Activate(this.id)">
+                            <div id="TuesdaySlide" class="carousel-item">
                                 <img class="d-block w-100 img-thumbnail" src="@Url.Content(Model.WeeklyMenu.Tuesday.ImagePath)" alt="Second slide">
                             </div>
-                            <div id="WednesdaySlide" class="carousel-item" onchange="Activate(this.id)">
+                            <div id="WednesdaySlide" class="carousel-item">
                                 <img class="d-block w-100 img-thumbnail" src="@Url.Content(Model.WeeklyMenu.Wednesday.ImagePath)" alt="Third slide">
                             </div>
-                            <div id="ThursdaySlide" class="carousel-item" onchange="Activate(this.id)">
+                            <div id="ThursdaySlide" class="carousel-item">
                                 <img class="d-block w-100 img-thumbnail" src="@Url.Content(Model.WeeklyMenu.Thursday.ImagePath)" alt="Fourth slide">
                             </div>
-                            <div id="FridaySlide" class="carousel-item" onchange="Activate(this.id)">
+                            <div id="FridaySlide" class="carousel-item">
                                 <img class="d-block w-100 img-thumbnail" src="@Url.Content(Model.WeeklyMenu.Friday.ImagePath)" alt="Fifth slide">
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6 d-flex flex-wrap p-2">
-                    <div class="card-text lead col-md-12">Dagens ret: 
+                    <div class="card-text lead col-md-12">
+                        Dagens ret:
                         <a href="@Html.DisplayTextFor(model => model.WeeklyMenu.Today.RecipePath)">@Html.DisplayTextFor(model => model.WeeklyMenu.Today.Name)</a>
                     </div>
                     <hr class="col-md-11 ml-1" />
                     <ul class="list-group col-md-12 align-self-end m-3">
                         <li class="list-group-item text-center lead list-group-item-secondary">Ugens Menu</li>
-                        <li class="list-group-item">Mandag - 
+                        <li class="list-group-item">
+                            Mandag -
                             <a href="@Html.DisplayTextFor(model => model.WeeklyMenu.Monday.RecipePath)">@Html.DisplayTextFor(model => model.WeeklyMenu.Monday.Name)</a>
                         </li>
-                        <li class="list-group-item">Tirsdag - 
+                        <li class="list-group-item">
+                            Tirsdag -
                             <a href="@Html.DisplayTextFor(model => model.WeeklyMenu.Tuesday.RecipePath)">@Html.DisplayTextFor(model => model.WeeklyMenu.Tuesday.Name)</a>
                         </li>
-                        <li class="list-group-item">Onsdag - 
+                        <li class="list-group-item">
+                            Onsdag -
                             <a href="@Html.DisplayTextFor(model => model.WeeklyMenu.Wednesday.RecipePath)">@Html.DisplayTextFor(model => model.WeeklyMenu.Wednesday.Name)</a>
                         </li>
-                        <li class="list-group-item">Torsdag - 
+                        <li class="list-group-item">
+                            Torsdag -
                             <a href="@Html.DisplayTextFor(model => model.WeeklyMenu.Thursday.RecipePath)">@Html.DisplayTextFor(model => model.WeeklyMenu.Thursday.Name)</a>
                         </li>
-                        <li class="list-group-item">Fredag - 
+                        <li class="list-group-item">
+                            Fredag -
                             <a href="@Html.DisplayTextFor(model => model.WeeklyMenu.Friday.RecipePath)">@Html.DisplayTextFor(model => model.WeeklyMenu.Friday.Name)</a>
                         </li>
                     </ul>

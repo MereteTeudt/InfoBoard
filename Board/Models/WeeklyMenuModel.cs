@@ -52,19 +52,19 @@ namespace Board.Models
         {
             MealModel todaysMeal = new MealModel();
             string today = DayToday.ToString("dddd");
-            if(today == "mandag")
+            if(today == "mandag" || today ==  "Monday")
             {
                 todaysMeal = model.WeeklyMenu.Monday;
             }
-            else if(today == "tirsdag")
+            else if(today == "tirsdag" || today == "Tuesday")
             {
                 todaysMeal = model.WeeklyMenu.Tuesday;
             }
-            else if (today == "onsdag")
+            else if (today == "onsdag" || today == "Wednesday")
             {
                 todaysMeal = model.WeeklyMenu.Wednesday;
             }
-            else if (today == "torsdag")
+            else if (today == "torsdag" || today == "Thursday")
             {
                 todaysMeal = model.WeeklyMenu.Thursday;
             }
