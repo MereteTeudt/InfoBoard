@@ -27,6 +27,10 @@ namespace Board.Models
                 Thursday,
                 Friday
             };
+
+            DayToday = DateTime.Now;
+
+            Today = new MealModel();
         }
         public MealModel Monday { get; set; }
 
@@ -38,6 +42,38 @@ namespace Board.Models
 
         public MealModel Friday { get; set; }
 
-        public List<MealModel> Week { get; set; }
+        public MealModel Today { get; set; }
+
+        public static List<MealModel> Week { get; set; }
+
+        public static DateTime DayToday { get; set; }
+
+        public static MealModel GetTodaysMeal(InfoBoardModel model)
+        {
+            MealModel todaysMeal = new MealModel();
+            string today = DayToday.ToString("dddd");
+            if(today == "mandag")
+            {
+                todaysMeal = model.WeeklyMenu.Monday;
+            }
+            else if(today == "tirsdag")
+            {
+                todaysMeal = model.WeeklyMenu.Tuesday;
+            }
+            else if (today == "onsdag")
+            {
+                todaysMeal = model.WeeklyMenu.Wednesday;
+            }
+            else if (today == "torsdag")
+            {
+                todaysMeal = model.WeeklyMenu.Thursday;
+            }
+            else
+            {
+                todaysMeal = model.WeeklyMenu.Friday;
+            }
+
+            return todaysMeal;
+        }
     }
 }

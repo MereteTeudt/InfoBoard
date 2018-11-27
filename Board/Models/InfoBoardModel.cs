@@ -56,12 +56,12 @@ namespace Board.Models
             infoBoardModel.WeeklyTheme.Assembly.AssemblyTheme = "Flex-job";
             infoBoardModel.WeeklyTheme.Assembly.ImagePath = "~/Images/default-image.jpg";
 
-            infoBoardModel.WeeklyMenu.Monday = new MealModel("Boller i karry", "www.karolines.dk/boller_i_karry", "~/Images/InfoBoardFood/RecipeOne.jpeg");
-            infoBoardModel.WeeklyMenu.Tuesday = new MealModel("Spaghetti og kødboller", "www.karolines.dk/spaghetti_og_kødboller", "~/Images/InfoBoardFood/RecipeThree.jpeg");
-            infoBoardModel.WeeklyMenu.Wednesday = new MealModel("Ragout", "www.karolines.dk/ragout", "~/Images/InfoBoardFood/RecipeThree.jpeg");
-            infoBoardModel.WeeklyMenu.Thursday = new MealModel("Lasagne", "www.karolines.dk/lasagne", "~/Images/InfoBoardFood/RecipeOne.jpeg");
-            infoBoardModel.WeeklyMenu.Friday = new MealModel("Pizza", "www.karolines.dk/pizza", "~/Images/InfoBoardFood/RecipeThree.jpeg");
-
+            infoBoardModel.WeeklyMenu.Monday = new MealModel("Boller i karry", "https://www.w3schools.com/", "~/Images/InfoBoardFood/RecipeOne.jpeg");
+            infoBoardModel.WeeklyMenu.Tuesday = new MealModel("Spaghetti og kødboller", "https://www.w3schools.com/", "~/Images/InfoBoardFood/RecipeThree.jpeg");
+            infoBoardModel.WeeklyMenu.Wednesday = new MealModel("Ragout", "https://www.w3schools.com/", "~/Images/InfoBoardFood/RecipeThree.jpeg");
+            infoBoardModel.WeeklyMenu.Thursday = new MealModel("Lasagne", "https://www.w3schools.com/", "~/Images/InfoBoardFood/RecipeOne.jpeg");
+            infoBoardModel.WeeklyMenu.Friday = new MealModel("Pizza", "https://www.w3schools.com/", "~/Images/InfoBoardFood/RecipeThree.jpeg");
+            infoBoardModel.weeklyMenu.Today = WeeklyMenuModel.GetTodaysMeal(infoBoardModel);
             return infoBoardModel;
         }
     }

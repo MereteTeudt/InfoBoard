@@ -54,7 +54,7 @@ namespace Board.Controllers
                 Directory.CreateDirectory(path);
             }
 
-            foreach (MealModel model in infoBoardModel.WeeklyMenu.Week)
+            foreach (MealModel model in WeeklyMenuModel.Week)
             {
                 HttpPostedFileBase imageFile = model.ImageFile;
                 if (imageFile != null)

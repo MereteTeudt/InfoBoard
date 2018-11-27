@@ -18,6 +18,7 @@ namespace Board.Models
 
         public MealModel()
         { }
+
         public string Name { get; set; }
 
         public string RecipePath { get; set; }
