@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
@@ -14,11 +15,12 @@ namespace Board.Models
         {
             InitializeClient();
         }
-        public int Temperature { get; set; }
 
-        public string Icon { get; set; }
+        public string Icon {get; set;}
 
-        public string Location { get; set; }
+        public string Temp { get; set; }
+
+        public string Name { get; set; }
 
         public static HttpClient ApiClient { get; set; }
 
@@ -35,12 +37,22 @@ namespace Board.Models
         public static async Task<WeatherModel> LoadWeatherInfo()
         {
             string url = "https://api.openweathermap.org/data/2.5/weather?id=2610601&units=metric&APPID=f875a4257eb28c788895b2abd208672e";
-
+            WeatherModel weatherModel = new WeatherModel();
             using (HttpResponseMessage response = await ApiClient.GetAsync(url))
             {
                 if(response.IsSuccessStatusCode)
                 {
-                    WeatherModel weatherModel = await response.Content.ReadAsAsync<WeatherModel>();
+                    string result = await response.Content.ReadAsStringAsync();
+                    JObject jObject = JObject.Parse(result);
+                    var icon = jObject["weather"][0]["icon"];
+                    weatherModel.Icon = icon.ToString();
+
+                    var temp = jObject["main"]["temp"];
+                    weatherModel.Temp = temp.ToString();
+
+                    var name = jObject["name"];
+                    weatherModel.Name = name.ToString();
+
                     return weatherModel;
                 }
                 else
