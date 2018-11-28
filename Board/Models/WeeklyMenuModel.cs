@@ -28,7 +28,7 @@ namespace Board.Models
                 Friday
             };
 
-            DayToday = new DayOfWeek();
+            DayToday = DateTime.Now.DayOfWeek;
 
             Today = new MealModel();
         }
