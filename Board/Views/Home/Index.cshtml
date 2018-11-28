@@ -4,7 +4,7 @@
 @model Board.Models.InfoBoardModel
 <div class="d-flex flex-wrap my-5 p-2">
     <div class="col-md-12">
-        <div class="card Card">
+        <div class="card Card bg-light">
             <div class="card-body">
                 <blockquote class="blockquote mb-0 text-center">
                     <p>@Html.DisplayTextFor(model => model.WeeklyTheme.Quote.QuoteText)</p>
@@ -19,21 +19,24 @@
     </div>
     <div class="d-flex flex-wrap col-md-12">
         <div class="col-md-6">
-            <div class="card Card">
+            <div class="card Card bg-light">
                 <div class="card-body">
                     <h5 class="card-title display-4 text-center">Ugens tema - @Html.DisplayTextFor(model => model.WeeklyTheme.Assembly.AssemblyTheme)</h5>
                     <hr />
                     <img class="rounded mx-auto d-block" src="@Url.Content(Model.WeeklyTheme.Assembly.ImagePath)" alt="Card image cap">
                 </div>
             </div>
-            <div class="card Card">
-                <div class="card-body">
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <div class="card Card bg-light col-md-4">
+                <img class="card-img-top" src="~/Images/logo.png" alt="Card image cap">
+                <div class="card-body text-center">
+                    <p class="card-text lead">Temperatur</p>
+                    <p class="card-text lead">Vejle Kommune</p>
+                    @Html.ActionLink("click", "Weather")
                 </div>
             </div>
         </div>
         <div class="col-md-6">
-            <div class="card Card">
+            <div class="card Card bg-light">
                 <div class="d-flex card-body">
                     <div class="col-md-6 p-2">
                         <div id="slideshow" class="carousel slide carousel-fade" data-ride="carousel">
@@ -88,7 +91,7 @@
                     </div>
                 </div>
             </div>
-            <div class="card Card">
+            <div class="card Card bg-light">
                 <div class="card-body">
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                 </div>

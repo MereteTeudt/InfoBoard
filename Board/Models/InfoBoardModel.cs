@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 
 namespace Board.Models
@@ -11,11 +12,13 @@ namespace Board.Models
 
         private WeeklyThemeModel weeklyTheme;
 
+
         public InfoBoardModel()
         {
             CurrentWeek = (DateTime.Now.DayOfYear / 7).ToString();
             WeeklyTheme = new WeeklyThemeModel();
             WeeklyMenu = new WeeklyMenuModel();
+            Weather = new WeatherModel();
         }
 
         public string CurrentWeek { get; set; }
@@ -44,6 +47,8 @@ namespace Board.Models
             }
         }
 
+        public WeatherModel Weather { get; set; }
+
         public static InfoBoardModel TestBoard()
         {
             InfoBoardModel infoBoardModel = new InfoBoardModel();
@@ -62,6 +67,7 @@ namespace Board.Models
             infoBoardModel.WeeklyMenu.Thursday = new MealModel("Lasagne", "https://www.w3schools.com/", "~/Images/InfoBoardFood/RecipeOne.jpeg");
             infoBoardModel.WeeklyMenu.Friday = new MealModel("Pizza", "https://www.w3schools.com/", "~/Images/InfoBoardFood/RecipeThree.jpeg");
             infoBoardModel.weeklyMenu.Today = WeeklyMenuModel.GetTodaysMeal(infoBoardModel);
+
             return infoBoardModel;
         }
     }

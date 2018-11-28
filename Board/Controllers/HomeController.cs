@@ -15,5 +15,10 @@ namespace Board.Controllers
             infoBoardModel = InfoBoardModel.TestBoard();
             return View("Index", infoBoardModel);
         }
+
+        public ActionResult Weather()
+        {
+
+        }
     }
 }
