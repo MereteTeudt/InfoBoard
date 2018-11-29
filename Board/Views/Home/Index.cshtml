@@ -27,11 +27,10 @@
                 </div>
             </div>
             <div class="card Card bg-light col-md-4">
-                <img class="card-img-top" src="~/Images/logo.png" alt="Card image cap">
+                <img class="card-img-top" src="@Url.Content(Model.Weather.IconPath)" alt="Card image cap">
                 <div class="card-body text-center">
-                    <p class="card-text lead">Temperatur</p>
-                    <p class="card-text lead">Vejle Kommune</p>
-                    @Html.ActionLink("click", "Weather")
+                    <p class="card-text lead">Temperatur: @Html.DisplayTextFor(model => model.Weather.Temp)</p>
+                    <p class="card-text lead">@Html.DisplayTextFor(model => model.Weather.Name)</p>
                 </div>
             </div>
         </div>
@@ -100,5 +99,5 @@
     </div>
 </div>
 <div class="text-right col-md-12">
-    <button class="btn btn-lg btn-outline-secondary">Redigering &#x270E;</button>
+    <a class="btn btn-lg btn-outline-secondary" href="@Url.Action("Index", "Administration")">Redigering &#x270E;</a>
 </div>
