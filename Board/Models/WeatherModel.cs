@@ -65,7 +65,56 @@ namespace Board.Models
         public string GetIconPath(string iconCode)
         {
             string icon = "";
-            icon = "wi wi-day-sunny wi-custom-color wi-custom-size";
+            switch(iconCode)
+            {
+                case "01d":
+                    {
+                        icon = "day-sunny";
+                        break;
+                    }
+                case "02d":
+                    {
+                        icon = "day-sunny-overcast";
+                        break;
+                    }
+                case "03d":
+                    {
+                        icon = "cloud";
+                        break;
+                    }
+                case "04d":
+                    {
+                        icon = "cloudy";
+                        break;
+                    }
+                case "09d":
+                    {
+                        icon = "showers";
+                        break;
+                    }
+                case "10d":
+                    {
+                        icon = "rain";
+                        break;
+                    }
+                case "11d":
+                    {
+                        icon = "thunderstorm";
+                        break;
+                    }
+                case "13d":
+                    {
+                        icon = "snow";
+                        break;
+                    }
+                case "50d":
+                    {
+                        icon = "fog";
+                        break;
+                    }
+
+            }
+            icon = "wi-" + icon;
             return icon;
         }
     }
