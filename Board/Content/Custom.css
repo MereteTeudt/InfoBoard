@@ -19,3 +19,7 @@ a {
     color: black;
     font-style: italic;
 }
+.weatherBox {
+    width: 100px;
+    height: 100px;
+}

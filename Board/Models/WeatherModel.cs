@@ -16,7 +16,7 @@ namespace Board.Models
             InitializeClient();
         }
 
-        public string IconPath {get; set;}
+        public string Icon {get; set;}
 
         public string Temp { get; set; }
 
@@ -45,7 +45,7 @@ namespace Board.Models
                     string result = await response.Content.ReadAsStringAsync();
                     JObject jObject = JObject.Parse(result);
                     var iconCode = jObject["weather"][0]["icon"];
-                    weatherModel.IconPath = weatherModel.GetIconPath(iconCode.ToString());
+                    weatherModel.Icon = weatherModel.GetIconPath(iconCode.ToString());
 
                     var temp = jObject["main"]["temp"];
                     weatherModel.Temp = temp.ToString();
@@ -64,8 +64,9 @@ namespace Board.Models
 
         public string GetIconPath(string iconCode)
         {
-            string iconPath = "http://openweathermap.org/img/w/" + iconCode + ".png";
-            return iconPath;
+            string icon = "";
+            icon = "wi wi-day-sunny wi-custom-color wi-custom-size";
+            return icon;
         }
     }
 }

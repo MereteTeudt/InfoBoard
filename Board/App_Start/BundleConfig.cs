@@ -29,6 +29,13 @@ namespace Board
                       "~/Content/bootstrap.css",
                       "~/Content/site.css",
                       "~/Content/Custom.css"));
+
+
+            bundles.Add(new StyleBundle("~/Content/weather").Include(
+                      "~/Content/weatherIcons/weather-icons-wind.css",
+                      "~/Content/weatherIcons/weather-icons-wind.mini.css",
+                      "~/Content/weatherIcons/weather-icons.css",
+                      "~/Content/weatherIcons/weather-icons.mini.css"));
         }
     }
 }
