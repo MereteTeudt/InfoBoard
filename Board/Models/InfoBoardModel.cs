@@ -18,7 +18,7 @@ namespace Board.Models
             CurrentWeek = (DateTime.Now.DayOfYear / 7).ToString();
             WeeklyTheme = new WeeklyThemeModel();
             WeeklyMenu = new WeeklyMenuModel();
-            Weather = new WeatherModel();
+            Forecast = new WeatherForecast();
         }
 
         public string CurrentWeek { get; set; }
@@ -47,7 +47,7 @@ namespace Board.Models
             }
         }
 
-        public WeatherModel Weather { get; set; }
+        public WeatherForecast Forecast { get; set; }
 
         public static InfoBoardModel TestBoard()
         {

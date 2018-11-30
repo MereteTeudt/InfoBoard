@@ -11,7 +11,7 @@ namespace Board.Models
 {
     public class WeatherForecast
     {
-        public static List<WeatherModel> WeatherModels { get; set; }
+        public List<WeatherModel> WeatherModels { get; set; }
 
         public static HttpClient ApiClient { get; set; }
 
