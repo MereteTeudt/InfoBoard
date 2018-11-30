@@ -20,7 +20,11 @@ namespace Board.Models
 
         public string Temp { get; set; }
 
-        public string Name { get; set; }
+        public string TempHigh { get; set; }
+
+        public string TempLow { get; set; }
+
+        public int Day { get; set; }
 
         public static HttpClient ApiClient { get; set; }
 
@@ -50,9 +54,6 @@ namespace Board.Models
                     var temp = jObject["main"]["temp"];
                     weatherModel.Temp = temp.ToString();
 
-                    var name = jObject["name"];
-                    weatherModel.Name = name.ToString();
-
                     return weatherModel;
                 }
                 else
@@ -62,6 +63,37 @@ namespace Board.Models
             }
         }
 
+        public static async Task<List<WeatherModel>> LoadWeatherForecast()
+        {
+            string url = "https://api.openweathermap.org/data/2.5/forecast?id=2610601&units=metric&APPID=f875a4257eb28c788895b2abd208672e";
+            using (HttpResponseMessage response = await ApiClient.GetAsync(url))
+            {
+                List<WeatherModel> weatherForecast = new List<WeatherModel>();
+                WeatherModel weatherModel = new WeatherModel();
+                if (response.IsSuccessStatusCode)
+                {
+                    string result = await response.Content.ReadAsStringAsync();
+                    JObject jObject = JObject.Parse(result);
+
+
+                    foreach (JObject j in jObject["list"])
+                    {
+                        var iconCode = j["weather"][0]["icon"];
+                        weatherModel.Icon = weatherModel.GetIconPath(iconCode.ToString());
+                        var temp = j["main"]["temp"];
+                        weatherModel.Temp = temp.ToString();
+                        weatherForecast.Add(weatherModel);
+                    }
+
+                    return weatherForecast;
+                }
+                else
+                {
+                    throw new Exception(response.ReasonPhrase);
+                }
+            }
+
+        }
         public string GetIconPath(string iconCode)
         {
             string icon = "";

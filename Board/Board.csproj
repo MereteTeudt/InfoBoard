@@ -162,6 +162,7 @@
     <Compile Include="Models\MealModel.cs" />
     <Compile Include="Models\QuoteModel.cs" />
     <Compile Include="Models\AssemblyModel.cs" />
+    <Compile Include="Models\WeatherForecast.cs" />
     <Compile Include="Models\WeatherModel.cs" />
     <Compile Include="Models\WeeklyMenuModel.cs" />
     <Compile Include="Models\WeeklyThemeModel.cs" />
