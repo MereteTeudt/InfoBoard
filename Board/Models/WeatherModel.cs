@@ -24,7 +24,7 @@ namespace Board.Models
 
         public string TempLow { get; set; }
 
-        public int Day { get; set; }
+        public string Day { get; set; }
 
         public static HttpClient ApiClient { get; set; }
 

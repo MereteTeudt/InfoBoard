@@ -40,9 +40,11 @@ namespace Board.Models
                     string result = await response.Content.ReadAsStringAsync();
                     JObject jObject = JObject.Parse(result);
                     WeatherModel weatherNow = new WeatherModel();
-                    weatherNow.Day = 1;
+                    weatherNow.Day = DateTime.Today.DayOfWeek.ToString();
                     var iconCodeNow = jObject["list"][0]["weather"][0]["icon"];
-                    weatherNow.Icon = GetIconClass(iconCodeNow.ToString());
+                    string code = iconCodeNow.ToString();
+                    string noLetter = code.Remove(code.Length - 1);
+                    weatherNow.Icon = GetIconClass(noLetter + "d");
                     var tempNow = jObject["list"][0]["main"]["temp"];
                     double doubleTemp = double.Parse(tempNow.ToString());
                     weatherNow.Temp = Math.Round(doubleTemp, 1).ToString();
@@ -60,6 +62,7 @@ namespace Board.Models
                         bool success = Int32.TryParse(unixDate.ToString(), out unixInt);
                         DateTimeOffset dateTimeOffset = DateTimeOffset.FromUnixTimeSeconds(unixInt);
                         DateTime date = dateTimeOffset.UtcDateTime;
+                        weatherModel.Day = date.DayOfWeek.ToString();
                         if (date.Date == DateTime.Today.AddDays(1))
                         {
                             var iconCode = j["weather"][0]["icon"];
@@ -98,10 +101,10 @@ namespace Board.Models
                         }
                     }
 
-                    WeatherModel weatherDayTwo = CalcWeatherOfDay(weathersTwo, 2);
-                    WeatherModel weatherDayThree = CalcWeatherOfDay(weathersThree, 3);
-                    WeatherModel weatherDayFour = CalcWeatherOfDay(weathersFour, 4);
-                    WeatherModel weatherDayFive = CalcWeatherOfDay(weathersFive, 5);
+                    WeatherModel weatherDayTwo = CalcWeatherOfDay(weathersTwo);
+                    WeatherModel weatherDayThree = CalcWeatherOfDay(weathersThree);
+                    WeatherModel weatherDayFour = CalcWeatherOfDay(weathersFour);
+                    WeatherModel weatherDayFive = CalcWeatherOfDay(weathersFive);
 
                     List<WeatherModel> weatherForecast = new List<WeatherModel>(new WeatherModel[] 
                     { weatherNow, weatherDayTwo, weatherDayThree, weatherDayFour, weatherDayFive });
@@ -114,7 +117,7 @@ namespace Board.Models
             }
         }
 
-        public static WeatherModel CalcWeatherOfDay(List<WeatherModel> weathers, int dayNumber)
+        public static WeatherModel CalcWeatherOfDay(List<WeatherModel> weathers)
         {
             WeatherModel weatherModel = new WeatherModel();
             List<decimal> temps = new List<decimal>();
@@ -131,10 +134,10 @@ namespace Board.Models
                 double code = double.Parse(withoutLetter);
                 intIconCodes.Add(code);
             }
-            weatherModel.Day = dayNumber;
             weatherModel.TempHigh = Math.Round(temps.Max(), 1).ToString();
             weatherModel.TempLow = Math.Round(temps.Min(), 1).ToString();
             weatherModel.Icon = GetIconClass(intIconCodes.Max().ToString() + "d");
+            weatherModel.Day = weathers[0].Day;
 
             return weatherModel;
         }
@@ -143,7 +146,7 @@ namespace Board.Models
             string icon = "";
             switch (iconCode)
             {
-                case "01d":
+                case ("01d"):
                     {
                         icon = "day-sunny";
                         break;
