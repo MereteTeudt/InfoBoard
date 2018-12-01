@@ -14,7 +14,9 @@ namespace Board.Controllers
         public async Task<ActionResult> Index()
         {
             infoBoardModel = InfoBoardModel.TestBoard();
-            List<WeatherModel> weatherForecast = await WeatherModel.LoadWeatherForecast();
+            WeatherForecast weatherForecast = new WeatherForecast();
+            weatherForecast.WeatherModels = await WeatherForecast.LoadWeatherForecast();
+            infoBoardModel.Forecast = weatherForecast;
             return View("Index", infoBoardModel);
         }
     }

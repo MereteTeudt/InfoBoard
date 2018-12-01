@@ -38,8 +38,11 @@
 .wi-custom-color {
     color: lightslategrey !important;
 }
-.wi-custom-size {
+.wi-custom-size-large {
     font-size: 5em !important;
+}
+.wi-custom-size-small {
+    font-size: 3em !important;
 }
 .wi-fw {
   text-align: center;

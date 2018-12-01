@@ -5,12 +5,17 @@ using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
+using static System.Globalization.NumberStyles;
 using System.Web;
 
 namespace Board.Models
 {
     public class WeatherForecast
     {
+        public WeatherForecast()
+        {
+            InitializeClient();
+        }
         public List<WeatherModel> WeatherModels { get; set; }
 
         public static HttpClient ApiClient { get; set; }
@@ -30,17 +35,17 @@ namespace Board.Models
             string url = "https://api.openweathermap.org/data/2.5/forecast?id=2610601&units=metric&APPID=f875a4257eb28c788895b2abd208672e";
             using (HttpResponseMessage response = await ApiClient.GetAsync(url))
             {
-                WeatherModel weatherModel = new WeatherModel();
                 if (response.IsSuccessStatusCode)
                 {
                     string result = await response.Content.ReadAsStringAsync();
                     JObject jObject = JObject.Parse(result);
                     WeatherModel weatherNow = new WeatherModel();
                     weatherNow.Day = 1;
-                    var iconCodeNow = jObject["weather"][0]["icon"];
-                    weatherNow.Icon = weatherModel.GetIconPath(iconCodeNow.ToString());
-                    var tempNow = jObject["main"]["temp"];
-                    weatherNow.Temp = tempNow.ToString();
+                    var iconCodeNow = jObject["list"][0]["weather"][0]["icon"];
+                    weatherNow.Icon = GetIconClass(iconCodeNow.ToString());
+                    var tempNow = jObject["list"][0]["main"]["temp"];
+                    double doubleTemp = double.Parse(tempNow.ToString());
+                    weatherNow.Temp = Math.Round(doubleTemp, 1).ToString();
 
                     List<WeatherModel> weathersTwo = new List<WeatherModel>();
                     List<WeatherModel> weathersThree = new List<WeatherModel>();
@@ -49,43 +54,47 @@ namespace Board.Models
 
                     foreach (JObject j in jObject["list"])
                     {
-
+                        WeatherModel weatherModel = new WeatherModel();
                         var unixDate = j["dt"];
                         int unixInt;
                         bool success = Int32.TryParse(unixDate.ToString(), out unixInt);
                         DateTimeOffset dateTimeOffset = DateTimeOffset.FromUnixTimeSeconds(unixInt);
                         DateTime date = dateTimeOffset.UtcDateTime;
-                        if (date == DateTime.Today.AddDays(1))
+                        if (date.Date == DateTime.Today.AddDays(1))
                         {
                             var iconCode = j["weather"][0]["icon"];
-                            weatherModel.Icon = weatherModel.GetIconPath(iconCode.ToString());
+                            weatherModel.Icon = iconCode.ToString();
                             var temp = j["main"]["temp"];
                             weatherModel.Temp = temp.ToString();
                             weathersTwo.Add(weatherModel);
                         }
-                        else if (date == DateTime.Today.AddDays(2))
+                        else if (date.Date == DateTime.Today.AddDays(2))
                         {
                             var iconCode = j["weather"][0]["icon"];
-                            weatherModel.Icon = weatherModel.GetIconPath(iconCode.ToString());
+                            weatherModel.Icon = iconCode.ToString();
                             var temp = j["main"]["temp"];
                             weatherModel.Temp = temp.ToString();
                             weathersThree.Add(weatherModel);
                         }
-                        else if (date == DateTime.Today.AddDays(3))
+                        else if (date.Date == DateTime.Today.AddDays(3))
                         {
                             var iconCode = j["weather"][0]["icon"];
-                            weatherModel.Icon = weatherModel.GetIconPath(iconCode.ToString());
+                            weatherModel.Icon = iconCode.ToString();
                             var temp = j["main"]["temp"];
                             weatherModel.Temp = temp.ToString();
                             weathersFour.Add(weatherModel);
                         }
-                        else
+                        else if (date.Date == DateTime.Today.AddDays(4))
                         {
                             var iconCode = j["weather"][0]["icon"];
-                            weatherModel.Icon = weatherModel.GetIconPath(iconCode.ToString());
+                            weatherModel.Icon = iconCode.ToString();
                             var temp = j["main"]["temp"];
                             weatherModel.Temp = temp.ToString();
                             weathersFive.Add(weatherModel);
+                        }
+                        else
+                        {
+
                         }
                     }
 
@@ -108,25 +117,28 @@ namespace Board.Models
         public static WeatherModel CalcWeatherOfDay(List<WeatherModel> weathers, int dayNumber)
         {
             WeatherModel weatherModel = new WeatherModel();
-            List<int> temps = new List<int>();
+            List<decimal> temps = new List<decimal>();
             foreach (WeatherModel weather in weathers)
             {
-                temps.Add(Int32.Parse(weather.Temp));
+                decimal decTemp = Decimal.Parse(weather.Temp);
+                temps.Add(decTemp);
             }
-            List<int> intIconCodes = new List<int>();
+            List<double> intIconCodes = new List<double>();
             for (int i = 3; i < 8; i++)
             {
-                int code = Int32.Parse(weathers[i].Icon.Remove(weathers[i].Icon.Length - 1));
+                string icon = weathers[i].Icon;
+                string withoutLetter = icon.Remove(icon.Length - 1);
+                double code = double.Parse(withoutLetter);
                 intIconCodes.Add(code);
             }
             weatherModel.Day = dayNumber;
-            weatherModel.TempHigh = temps.Max().ToString();
-            weatherModel.TempLow = temps.Min().ToString();
-            weatherModel.Icon = intIconCodes.Max().ToString() + "d";
+            weatherModel.TempHigh = Math.Round(temps.Max(), 1).ToString();
+            weatherModel.TempLow = Math.Round(temps.Min(), 1).ToString();
+            weatherModel.Icon = GetIconClass(intIconCodes.Max().ToString() + "d");
 
             return weatherModel;
         }
-        public string GetIconClass(string iconCode)
+        public static string GetIconClass(string iconCode)
         {
             string icon = "";
             switch (iconCode)
@@ -178,7 +190,7 @@ namespace Board.Models
                     }
 
             }
-            icon = "wi-" + icon;
+            icon = "wi wi-" + icon;
             return icon;
         }
     }
