@@ -5,9 +5,9 @@ using System.Web;
 
 namespace Board.Models
 {
-    public class WeeklyThemeModel
+    public class WeeklyActivitiesModel
     {
-        public WeeklyThemeModel()
+        public WeeklyActivitiesModel()
         {
             Quote = new QuoteModel();
             Assembly = new AssemblyModel();
@@ -15,5 +15,7 @@ namespace Board.Models
         public QuoteModel Quote { get; set; }
 
         public AssemblyModel Assembly { get; set; }
+
+        public FridayActivity Friday { get; set; }
     }
 }

@@ -158,6 +158,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="InfoBoardContext.cs" />
+    <Compile Include="Models\FridayActivity.cs" />
     <Compile Include="Models\InfoBoardModel.cs" />
     <Compile Include="Models\MealModel.cs" />
     <Compile Include="Models\QuoteModel.cs" />
@@ -165,7 +166,7 @@
     <Compile Include="Models\WeatherForecast.cs" />
     <Compile Include="Models\WeatherModel.cs" />
     <Compile Include="Models\WeeklyMenuModel.cs" />
-    <Compile Include="Models\WeeklyThemeModel.cs" />
+    <Compile Include="Models\WeeklyActivitiesModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -199,6 +200,7 @@
     <Content Include="Content\font\weathericons-regular-webfont.woff2" />
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <Content Include="Images\aspINlogo.png" />
     <Content Include="Images\AspitImages\15309---003.jpg" />
     <Content Include="Images\AspitImages\15309---005.jpg" />
     <Content Include="Images\AspitImages\15309---006.jpg" />
@@ -242,11 +244,13 @@
     <Content Include="Images\AspitImages\15309---054.jpg" />
     <Content Include="Images\AspitImages\15309---057.jpg" />
     <Content Include="Images\AspitImages\15309---058.jpg" />
+    <Content Include="Images\aspit_aspin_logo_aspin.png" />
+    <Content Include="Images\aspit_aspin_logo_aspit.png" />
     <Content Include="Images\default-image.jpg" />
     <Content Include="Images\InfoBoardFood\RecipeOne.jpeg" />
     <Content Include="Images\InfoBoardFood\RecipeThree.jpeg" />
     <Content Include="Images\InfoBoardFood\RecipeTwo.jpg" />
-    <Content Include="Images\logo.png" />
+    <Content Include="Images\aspITlogo.png" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />

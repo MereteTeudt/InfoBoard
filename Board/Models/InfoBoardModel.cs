@@ -10,13 +10,13 @@ namespace Board.Models
     {
         private WeeklyMenuModel weeklyMenu;
 
-        private WeeklyThemeModel weeklyTheme;
+        private WeeklyActivitiesModel weeklyTheme;
 
 
         public InfoBoardModel()
         {
             CurrentWeek = (DateTime.Now.DayOfYear / 7).ToString();
-            WeeklyTheme = new WeeklyThemeModel();
+            WeeklyActivities = new WeeklyActivitiesModel();
             WeeklyMenu = new WeeklyMenuModel();
             Forecast = new WeatherForecast();
         }
@@ -35,7 +35,7 @@ namespace Board.Models
             }
         }
 
-        public WeeklyThemeModel WeeklyTheme
+        public WeeklyActivitiesModel WeeklyActivities
         {
             get
             {
@@ -53,13 +53,17 @@ namespace Board.Models
         {
             InfoBoardModel infoBoardModel = new InfoBoardModel();
 
-            infoBoardModel.WeeklyTheme.Quote = new QuoteModel();
-            infoBoardModel.WeeklyTheme.Quote.QuoteText = "I hear and I forget. I see and I remember. I do and I understand.";
-            infoBoardModel.WeeklyTheme.Quote.QuoteAuthor = "Confucius";
+            infoBoardModel.WeeklyActivities.Quote = new QuoteModel();
+            infoBoardModel.WeeklyActivities.Quote.QuoteText = "I hear and I forget. I see and I remember. I do and I understand.";
+            infoBoardModel.WeeklyActivities.Quote.QuoteAuthor = "Confucius";
 
-            infoBoardModel.WeeklyTheme.Assembly = new AssemblyModel();
-            infoBoardModel.WeeklyTheme.Assembly.AssemblyTheme = "Flex-job";
-            infoBoardModel.WeeklyTheme.Assembly.ImagePath = "~/Images/default-image.jpg";
+            infoBoardModel.WeeklyActivities.Assembly = new AssemblyModel();
+            infoBoardModel.WeeklyActivities.Assembly.AssemblyTheme = "Flex-job";
+            infoBoardModel.WeeklyActivities.Assembly.ImagePath = "~/Images/default-image.jpg";
+
+            infoBoardModel.WeeklyActivities.Friday = new FridayActivity();
+            infoBoardModel.WeeklyActivities.Friday.Name = "Fri";
+            infoBoardModel.WeeklyActivities.Assembly.ImagePath = "~/Images/default-image.jpg";
 
             infoBoardModel.WeeklyMenu.Monday = new MealModel("Boller i karry", "https://www.w3schools.com/", "~/Images/InfoBoardFood/RecipeOne.jpeg");
             infoBoardModel.WeeklyMenu.Tuesday = new MealModel("Spaghetti og kødboller", "https://www.w3schools.com/", "~/Images/InfoBoardFood/RecipeThree.jpeg");

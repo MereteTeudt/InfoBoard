@@ -3,33 +3,16 @@
 }
 @model Board.Models.InfoBoardModel
 <div class="d-flex flex-wrap my-5 p-2">
-    <div class="col-md-8">
-        <div class="card Card bg-light">
-            <div class="card-body d-flex ">
-
-                <blockquote class="blockquote mb-0 text-center col-12">
-                    <h3>Ugens Citat</h3>
-                    <hr />
-                    <p>@Html.DisplayTextFor(model => model.WeeklyTheme.Quote.QuoteText)</p>
-                    <footer class="blockquote-footer">
-                        <cite title="Source Title">
-                            @Html.DisplayTextFor(model => model.WeeklyTheme.Quote.QuoteAuthor)
-                        </cite>
-                    </footer>
-                </blockquote>
-            </div>
-        </div>
-    </div>
-    <div class="card Card bg-light col-md-4">
-        <div class="card-body d-flex flex-wrap wi-custom-color my-3 p-0 weatherBackground">
-            <div class="d-flex justify-content-center col-12 text-light pb-4">
-                <h1 class="wi my-4">Vejle</h1>
-                <div class="card-text align-items-center justify-content-center d-flex lead weatherBox mx-2">
+    <div class="col-xl-4 col-lg-4">
+        <div class="card Card bg-light d-flex flex-wrap wi-custom-color my-3 p-0 weatherBackground border-light">
+            <div class="d-flex justify-content-center col-12 text-light">
+                <h3 class="wi my-4">Vejle</h3>
+                <div class="card-text align-items-center justify-content-center d-flex lead weatherBox my-2 mx-3">
                     <i class="@Html.DisplayTextFor(model => model.Forecast.WeatherModels[0].Icon) align-middle wi-custom-size-large"></i>
                 </div>
-                <h1 class="wi my-4">@Html.DisplayTextFor(model => model.Forecast.WeatherModels[0].Temp)<i class="wi-celsius"></i></h1>
+                <h3 class="wi my-4">@Html.DisplayTextFor(model => model.Forecast.WeatherModels[0].Temp)<i class="wi-celsius"></i></h3>
             </div>
-            <table class="table table-bordered align-self-end text-center m-0 bg-light">
+            <table class="table align-self-end text-center m-0 bg-light">
                 <thead>
                     <tr>
                         <th class="p-0" scope="col">@Html.DisplayTextFor(model => model.Forecast.WeatherModels[1].Day)</th>
@@ -46,10 +29,10 @@
                                     <i class="@Html.DisplayTextFor(model => model.Forecast.WeatherModels[1].Icon) align-middle wi-custom-size-small"></i>
                                 </div>
                             </div>
-                            <h4 class="wi wi-custom-color my-2">
+                            <h5 class="wi wi-custom-color my-2">
                                 @Html.DisplayTextFor(model => model.Forecast.WeatherModels[1].TempLow)<i class="wi-celsius"></i> /
                                 @Html.DisplayTextFor(model => model.Forecast.WeatherModels[1].TempHigh)<i class="wi-celsius"></i>
-                            </h4>
+                            </h5>
                         </td>
                         <td class="p-0">
                             <div class="card-text align-items-center justify-content-center d-flex">
@@ -57,10 +40,10 @@
                                     <i class="@Html.DisplayTextFor(model => model.Forecast.WeatherModels[2].Icon) align-middle wi-custom-size-small"></i>
                                 </div>
                             </div>
-                            <h4 class="wi wi-custom-color my-2">
+                            <h5 class="wi wi-custom-color my-2">
                                 @Html.DisplayTextFor(model => model.Forecast.WeatherModels[2].TempLow)<i class="wi-celsius"></i> /
                                 @Html.DisplayTextFor(model => model.Forecast.WeatherModels[2].TempHigh)<i class="wi-celsius"></i>
-                            </h4>
+                            </h5>
                         </td>
                         <td class="p-0">
                             <div class="card-text align-items-center justify-content-center d-flex">
@@ -68,10 +51,10 @@
                                     <i class="@Html.DisplayTextFor(model => model.Forecast.WeatherModels[3].Icon) align-middle wi-custom-size-small"></i>
                                 </div>
                             </div>
-                            <h4 class="wi wi-custom-color my-2">
+                            <h5 class="wi wi-custom-color my-2">
                                 @Html.DisplayTextFor(model => model.Forecast.WeatherModels[3].TempLow)<i class="wi-celsius"></i> /
                                 @Html.DisplayTextFor(model => model.Forecast.WeatherModels[3].TempHigh)<i class="wi-celsius"></i>
-                            </h4>
+                            </h5>
                         </td>
                         <td class="p-0">
                             <div class="card-text align-items-center justify-content-center d-flex">
@@ -79,91 +62,108 @@
                                     <i class="@Html.DisplayTextFor(model => model.Forecast.WeatherModels[4].Icon) align-middle wi-custom-size-small"></i>
                                 </div>
                             </div>
-                            <h4 class="wi wi-custom-color my-2">
+                            <h5 class="wi wi-custom-color my-2">
                                 @Html.DisplayTextFor(model => model.Forecast.WeatherModels[4].TempLow)<i class="wi-celsius"></i> /
                                 @Html.DisplayTextFor(model => model.Forecast.WeatherModels[4].TempHigh)<i class="wi-celsius"></i>
-                            </h4>
+                            </h5>
                         </td>
                     </tr>
                 </tbody>
             </table>
         </div>
     </div>
-
-    <div class="d-flex flex-wrap col-md-12">
-        <div class="col-md-6">
-            <div class="card Card bg-light">
-                <div class="card-body">
-                    <h5 class="card-title display-4 text-center">Ugens tema - @Html.DisplayTextFor(model => model.WeeklyTheme.Assembly.AssemblyTheme)</h5>
+    <div class="col-xl-8 col-lg-8">
+        <div class="card Card bg-light">
+            <div class="card-body d-flex ">
+                <blockquote class="blockquote mb-0 text-center col-12">
+                    <h3>Ugens Citat</h3>
                     <hr />
-                    <img class="rounded mx-auto d-block" src="@Url.Content(Model.WeeklyTheme.Assembly.ImagePath)" alt="Card image cap">
+                    <p>@Html.DisplayTextFor(model => model.WeeklyActivities.Quote.QuoteText)</p>
+                    <footer class="blockquote-footer">
+                        <cite title="Source Title">
+                            @Html.DisplayTextFor(model => model.WeeklyActivities.Quote.QuoteAuthor)
+                        </cite>
+                    </footer>
+                </blockquote>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-6 col-lg-12">
+        <div class="card Card bg-light">
+            <div class="card-body">
+                <h1 class="card-title text-center">Denne Uge</h1>
+                <hr />
+                <div class="d-flex flex-wrap text-center">
+                    <div class="col-6">
+                        <h5>Morgensamling: </h5>
+                        <h5 class="lead">@Html.DisplayTextFor(model => model.WeeklyActivities.Assembly.AssemblyTheme)</h5>
+                        <img class="rounded mx-auto d-block img-fluid" src="@Url.Content(Model.WeeklyActivities.Assembly.ImagePath)" alt="Card image cap">
+                    </div>
+                    <div class="col-6">
+                        <h5>Fredag: </h5>
+                        <h5 class="lead">@Html.DisplayTextFor(model => model.WeeklyActivities.Friday.Name)</h5>
+                        <img class="rounded mx-auto d-block img-fluid" src="@Url.Content(Model.WeeklyActivities.Assembly.ImagePath)" alt="Card image cap">
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="col-md-6">
-            <div class="card Card bg-light">
-                <div class="d-flex card-body">
-                    <div class="col-md-6 p-2">
-                        <div id="slideshow" class="carousel slide carousel-fade" data-ride="carousel">
-                            <div class="carousel-inner col-md-12 m-0 p-0">
-                                <div id="MondaySlide" class="carousel-item active">
-                                    <img class="d-block w-100 img-thumbnail" src="@Url.Content(Model.WeeklyMenu.Monday.ImagePath)" alt="First slide">
-                                </div>
-                                <div id="TuesdaySlide" class="carousel-item">
-                                    <img class="d-block w-100 img-thumbnail" src="@Url.Content(Model.WeeklyMenu.Tuesday.ImagePath)" alt="Second slide">
-                                </div>
-                                <div id="WednesdaySlide" class="carousel-item">
-                                    <img class="d-block w-100 img-thumbnail" src="@Url.Content(Model.WeeklyMenu.Wednesday.ImagePath)" alt="Third slide">
-                                </div>
-                                <div id="ThursdaySlide" class="carousel-item">
-                                    <img class="d-block w-100 img-thumbnail" src="@Url.Content(Model.WeeklyMenu.Thursday.ImagePath)" alt="Fourth slide">
-                                </div>
-                                <div id="FridaySlide" class="carousel-item">
-                                    <img class="d-block w-100 img-thumbnail" src="@Url.Content(Model.WeeklyMenu.Friday.ImagePath)" alt="Fifth slide">
-                                </div>
+    </div>
+    <div class="col-xl-6 col-lg-12">
+        <div class="card Card bg-light">
+            <div class="d-flex card-body flex-wrap justify-content-center">
+                <div class="col-xl-6 col-lg-8 p-2">
+                    <div class="carousel slide carousel-fade" data-ride="carousel">
+                        <div class="carousel-inner col-xl-12 m-0 p-0">
+                            <div id="MondaySlide" class="carousel-item active">
+                                <img class="d-block w-100 img-thumbnail" src="@Url.Content(Model.WeeklyMenu.Monday.ImagePath)" alt="First slide">
+                            </div>
+                            <div id="TuesdaySlide" class="carousel-item">
+                                <img class="d-block w-100 img-thumbnail" src="@Url.Content(Model.WeeklyMenu.Tuesday.ImagePath)" alt="Second slide">
+                            </div>
+                            <div id="WednesdaySlide" class="carousel-item">
+                                <img class="d-block w-100 img-thumbnail" src="@Url.Content(Model.WeeklyMenu.Wednesday.ImagePath)" alt="Third slide">
+                            </div>
+                            <div id="ThursdaySlide" class="carousel-item">
+                                <img class="d-block w-100 img-thumbnail" src="@Url.Content(Model.WeeklyMenu.Thursday.ImagePath)" alt="Fourth slide">
+                            </div>
+                            <div id="FridaySlide" class="carousel-item">
+                                <img class="d-block w-100 img-thumbnail" src="@Url.Content(Model.WeeklyMenu.Friday.ImagePath)" alt="Fifth slide">
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 d-flex flex-wrap p-2">
-                        <div class="card-text lead col-md-12">
-                            Dagens ret:
-                            <a href="@Html.DisplayTextFor(model => model.WeeklyMenu.Today.RecipePath)">@Html.DisplayTextFor(model => model.WeeklyMenu.Today.Name)</a>
-                        </div>
-                        <hr class="col-md-11 ml-1" />
-                        <ul class="list-group col-md-12 align-self-end m-3">
-                            <li class="list-group-item text-center lead list-group-item-secondary">Ugens Menu</li>
-                            <li class="list-group-item">
-                                Mandag -
-                                <a href="@Html.DisplayTextFor(model => model.WeeklyMenu.Monday.RecipePath)">@Html.DisplayTextFor(model => model.WeeklyMenu.Monday.Name)</a>
-                            </li>
-                            <li class="list-group-item">
-                                Tirsdag -
-                                <a href="@Html.DisplayTextFor(model => model.WeeklyMenu.Tuesday.RecipePath)">@Html.DisplayTextFor(model => model.WeeklyMenu.Tuesday.Name)</a>
-                            </li>
-                            <li class="list-group-item">
-                                Onsdag -
-                                <a href="@Html.DisplayTextFor(model => model.WeeklyMenu.Wednesday.RecipePath)">@Html.DisplayTextFor(model => model.WeeklyMenu.Wednesday.Name)</a>
-                            </li>
-                            <li class="list-group-item">
-                                Torsdag -
-                                <a href="@Html.DisplayTextFor(model => model.WeeklyMenu.Thursday.RecipePath)">@Html.DisplayTextFor(model => model.WeeklyMenu.Thursday.Name)</a>
-                            </li>
-                            <li class="list-group-item">
-                                Fredag -
-                                <a href="@Html.DisplayTextFor(model => model.WeeklyMenu.Friday.RecipePath)">@Html.DisplayTextFor(model => model.WeeklyMenu.Friday.Name)</a>
-                            </li>
-                        </ul>
-                    </div>
                 </div>
-            </div>
-            <div class="card Card bg-light">
-                <div class="card-body">
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <div class="col-xl-6 col-lg-12 d-flex flex-wrap p-2">
+                    <div class="card-text lead col-xl-12">
+                        Dagens ret:
+                        <a href="@Html.DisplayTextFor(model => model.WeeklyMenu.Today.RecipePath)">@Html.DisplayTextFor(model => model.WeeklyMenu.Today.Name)</a>
+                    </div>
+                    <hr class="col-xl-11 ml-1" />
+                    <ul class="list-group col-xl-12 align-self-end m-3">
+                        <li class="list-group-item text-center lead list-group-item-secondary">Ugens Menu</li>
+                        <li class="list-group-item">
+                            Mandag -
+                            <a href="@Html.DisplayTextFor(model => model.WeeklyMenu.Monday.RecipePath)">@Html.DisplayTextFor(model => model.WeeklyMenu.Monday.Name)</a>
+                        </li>
+                        <li class="list-group-item">
+                            Tirsdag -
+                            <a href="@Html.DisplayTextFor(model => model.WeeklyMenu.Tuesday.RecipePath)">@Html.DisplayTextFor(model => model.WeeklyMenu.Tuesday.Name)</a>
+                        </li>
+                        <li class="list-group-item">
+                            Onsdag -
+                            <a href="@Html.DisplayTextFor(model => model.WeeklyMenu.Wednesday.RecipePath)">@Html.DisplayTextFor(model => model.WeeklyMenu.Wednesday.Name)</a>
+                        </li>
+                        <li class="list-group-item">
+                            Torsdag -
+                            <a href="@Html.DisplayTextFor(model => model.WeeklyMenu.Thursday.RecipePath)">@Html.DisplayTextFor(model => model.WeeklyMenu.Thursday.Name)</a>
+                        </li>
+                        <li class="list-group-item">
+                            Fredag -
+                            <a href="@Html.DisplayTextFor(model => model.WeeklyMenu.Friday.RecipePath)">@Html.DisplayTextFor(model => model.WeeklyMenu.Friday.Name)</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<div class="text-right col-md-12">
-    <a class="btn btn-lg btn-outline-secondary" href="@Url.Action("Index", "Administration")">Redigering &#x270E;</a>
-</div>
+

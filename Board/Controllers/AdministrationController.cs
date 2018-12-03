@@ -20,14 +20,14 @@ namespace Board.Controllers
 
         public ActionResult EditQuote(InfoBoardModel infoBoard)
         {
-            infoBoardModel.WeeklyTheme.Quote = infoBoard.WeeklyTheme.Quote;
+            infoBoardModel.WeeklyActivities.Quote = infoBoard.WeeklyActivities.Quote;
             return View("Index", infoBoardModel);
         }
 
         public ActionResult EditTheme(InfoBoardModel infoBoard)
         {
-            infoBoardModel.WeeklyTheme.Assembly = infoBoard.WeeklyTheme.Assembly;
-            HttpPostedFileBase imageFile = infoBoardModel.WeeklyTheme.Assembly.ImageFile;
+            infoBoardModel.WeeklyActivities.Assembly = infoBoard.WeeklyActivities.Assembly;
+            HttpPostedFileBase imageFile = infoBoardModel.WeeklyActivities.Assembly.ImageFile;
 
             string path = Server.MapPath("~/Uploads/");
             if (!Directory.Exists(path))

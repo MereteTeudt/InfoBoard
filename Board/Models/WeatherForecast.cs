@@ -136,7 +136,16 @@ namespace Board.Models
             }
             weatherModel.TempHigh = Math.Round(temps.Max(), 1).ToString();
             weatherModel.TempLow = Math.Round(temps.Min(), 1).ToString();
-            weatherModel.Icon = GetIconClass(intIconCodes.Max().ToString() + "d");
+            double chosenIcon = intIconCodes.Max();
+            if (chosenIcon < 10)
+            {
+                weatherModel.Icon = GetIconClass("0" + intIconCodes.Max().ToString() + "d");
+            }
+            else
+            {
+                weatherModel.Icon = GetIconClass(intIconCodes.Max().ToString() + "d");
+            }
+
             weatherModel.Day = weathers[0].Day;
 
             return weatherModel;

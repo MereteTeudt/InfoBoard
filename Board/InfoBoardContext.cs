@@ -18,7 +18,7 @@ namespace Board
 
         public DbSet<WeeklyMenuModel> WeeklyMenus { get; set; }
 
-        public DbSet<WeeklyThemeModel> WeeklyThemes { get; set; }
+        public DbSet<WeeklyActivitiesModel> WeeklyThemes { get; set; }
 
         public DbSet<QuoteModel> QuoteModels { get; set; }
         
