@@ -7,16 +7,30 @@ using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using static System.Globalization.NumberStyles;
 using System.Web;
+using System.Timers;
 
 namespace Board.Models
 {
     public class WeatherForecast
     {
+        private static Timer timer;
         public WeatherForecast()
         {
             InitializeClient();
+            timer = new Timer(60 * 60 * 1000);
+            timer.Elapsed += new ElapsedEventHandler(OnTimedEvent);
         }
-        public List<WeatherModel> WeatherModels { get; set; }
+        public List<WeatherModel> WeatherModels
+        {
+            get
+            {
+                return DatabaseAccess.Get();
+            }
+            set
+            {
+                DatabaseAccess.Set(value);
+            }
+        }
 
         public static HttpClient ApiClient { get; set; }
 
@@ -204,6 +218,12 @@ namespace Board.Models
             }
             icon = "wi wi-" + icon;
             return icon;
+        }
+
+        private static async void OnTimedEvent(object source, ElapsedEventArgs e)
+        {
+            List<WeatherModel> weatherModels = await LoadWeatherForecast();
+            DatabaseAccess.Set(weatherModels);
         }
     }
 }

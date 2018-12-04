@@ -13,3 +13,12 @@ function checkTime(i) {
     if (i < 10) { i = "0" + i };  // add zero in front of numbers < 10
     return i;
 }
+var timer = setInterval(updateWeather, 600000);
+function updateWeather() {
+    var weatherModel = 
+    
+    
+    
+    
+    @model.Forecast.WeatherModels
+}
