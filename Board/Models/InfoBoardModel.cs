@@ -15,6 +15,7 @@ namespace Board.Models
 
         public InfoBoardModel()
         {
+            APIHelper.InitializeClient();
             CurrentWeek = (DateTime.Now.DayOfYear / 7).ToString();
             WeeklyActivities = new WeeklyActivitiesModel();
             WeeklyMenu = new WeeklyMenuModel();

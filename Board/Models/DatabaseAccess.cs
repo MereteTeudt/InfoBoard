@@ -5,43 +5,48 @@ using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 
 namespace Board.Models
 {
     public class DatabaseAccess
     {
-
-        public static void Set(List<WeatherModel> w)
+        public static string ConString(string name)
         {
-            string connetionString;
-            IDbConnection cnn;
-            connetionString = @"Data Source = (localdb)\\MSSQLLocalDB; Initial Catalog = InfoBoard; Integrated Security = True; Connect Timeout = 30; Encrypt = False; TrustServerCertificate = False; ApplicationIntent = ReadWrite; MultiSubnetFailover = False";
+            return ConfigurationManager.ConnectionStrings[name].ConnectionString;
+        }
+
+        public static async Task<bool> Set()
+        {
+            List<WeatherModel> w = await APIData.LoadWeatherForecast();
+            int id = 1;
             foreach (WeatherModel model in w)
             {
-                using (cnn = new SqlConnection(connetionString))
+                using (IDbConnection connection = new SqlConnection(ConString("InfoBoard")))
                 {
-                    cnn.Execute("insert into Weather (Icon, TempHigh, TempLow, Temp, Day) values (@Icon, @TempHigh, @TempLow, @Temp, @Day)",
-                        new {
-                            model.Icon,
-                            model.TempHigh,
-                            model.TempLow,
-                            model.Temp,
-                            model.Day
-                        });
+                    string updateQuery = @"update Weather set Icon = @Icon, TempHigh = @TempHigh, TempLow = @TempLow, Temp = @Temp, Day = @Day where Id = @Id";
+                    var result = connection.Execute(updateQuery, new
+                    {
+                        model.Icon,
+                        model.TempHigh,
+                        model.TempLow,
+                        model.Temp,
+                        model.Day,
+                        id
+                    });
                 }
+                id++;
             }
+            return true;
         }
 
         public static List<WeatherModel> Get()
         {
             List<WeatherModel> weatherModels = new List<WeatherModel>();
-            string connetionString;
-            IDbConnection cnn;
-            connetionString = @"Data Source = (localdb)\\MSSQLLocalDB; Initial Catalog = InfoBoard; Integrated Security = True; Connect Timeout = 30; Encrypt = False; TrustServerCertificate = False; ApplicationIntent = ReadWrite; MultiSubnetFailover = False";
-            using (cnn = new SqlConnection(connetionString))
+            using (IDbConnection connection = new SqlConnection(ConString("InfoBoard")))
             {
-                weatherModels = cnn.Query<WeatherModel>("select * from Weather").ToList();
+                weatherModels = connection.Query<WeatherModel>("select * from Weather").ToList();
             }
             return weatherModels;
         }

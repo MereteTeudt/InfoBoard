@@ -8,10 +8,10 @@
         <div class="card Card bg-light d-flex flex-wrap wi-custom-color my-3 p-0 weatherBackground border-light">
             <div class="d-flex justify-content-center col-12 text-light">
                 <h3 class="wi my-4">Vejle</h3>
-                <div class="card-text align-items-center justify-content-center d-flex lead weatherBox my-2 mx-3">
-                    <i class="@Html.DisplayTextFor(model => model.Forecast.WeatherModels[0].Icon) align-middle wi-custom-size-large"></i>
+                <div class="card-text align-items-center justify-content-center d-flex lead weatherBox my-2 mx-3 wi-custom-size-large">
+                    <i id="icon1" class="@Html.DisplayTextFor(model => model.Forecast.WeatherModels[0].Icon)"></i>
                 </div>
-                <h3 class="wi my-4">@Html.DisplayTextFor(model => model.Forecast.WeatherModels[0].Temp)<i class="wi-celsius"></i></h3>
+                <h3 id="temp1" class="wi my-4">@Html.DisplayTextFor(model => model.Forecast.WeatherModels[0].Temp)<i class="wi-celsius"></i></h3>
             </div>
             <table class="table align-self-end text-center m-0 bg-light">
                 <thead>
@@ -27,10 +27,10 @@
                         <td class="p-0">
                             <div class="card-text align-items-center justify-content-center d-flex">
                                 <div class="card-text align-items-center justify-content-center d-flex lead">
-                                    <i class="@Html.DisplayTextFor(model => model.Forecast.WeatherModels[1].Icon) align-middle wi-custom-size-small"></i>
+                                    <i id="icon2"class="@Html.DisplayTextFor(model => model.Forecast.WeatherModels[1].Icon) align-middle wi-custom-size-small"></i>
                                 </div>
                             </div>
-                            <h5 class="wi wi-custom-color my-2">
+                            <h5 id="temps2" class="wi wi-custom-color my-2">
                                 @Html.DisplayTextFor(model => model.Forecast.WeatherModels[1].TempLow)<i class="wi-celsius"></i> /
                                 @Html.DisplayTextFor(model => model.Forecast.WeatherModels[1].TempHigh)<i class="wi-celsius"></i>
                             </h5>

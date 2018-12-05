@@ -169,12 +169,15 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="InfoBoardContext.cs" />
+    <Compile Include="Models\APIHelper.cs" />
+    <Compile Include="Models\APIData.cs" />
     <Compile Include="Models\DatabaseAccess.cs" />
     <Compile Include="Models\FridayActivity.cs" />
     <Compile Include="Models\InfoBoardModel.cs" />
     <Compile Include="Models\MealModel.cs" />
     <Compile Include="Models\QuoteModel.cs" />
     <Compile Include="Models\AssemblyModel.cs" />
+    <Compile Include="Models\WeatherCalc.cs" />
     <Compile Include="Models\WeatherForecast.cs" />
     <Compile Include="Models\WeatherModel.cs" />
     <Compile Include="Models\WeeklyMenuModel.cs" />

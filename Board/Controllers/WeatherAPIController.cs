@@ -17,13 +17,7 @@ namespace Board.Controllers
         // GET: api/WeatherAPI
         public List<WeatherModel> Get()
         {
-            return WeatherModels;
-        }
-
-        private async Task GetWeather()
-        {
-            List<WeatherModel> list = await WeatherForecast.LoadWeatherForecast();
-            WeatherModels = list;
+            return DatabaseAccess.Get();
         }
     }
 }
