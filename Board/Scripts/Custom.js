@@ -21,21 +21,20 @@ function getFunction() {
         console.log(data);
         var dayOne = data[0];
         var icon = dayOne.Icon;
-        var iconHtml = document.getElementById('icon1');
+        var iconHtml = document.getElementById('iconNow');
         iconHtml.setAttribute('class', icon);
         var temp = dayOne.Temp;
-        var tempHtml = document.getElementById('temp1');
+        var tempHtml = document.getElementById('tempNow');
         tempHtml.innerHTML = temp;
-        for (i = 1; i <= data.length; i++) {
-            var iconHtml = document.getElementById('icon' + i)
+        for (i = 1; i < 5; i++) {
+            var iconHtml = document.getElementById('icon' + i);
             var icon = data[i].Icon;
-            console.log(icon);
             iconHtml.setAttribute('class', icon);
             var tempLow = data[i].TempLow;
             var tempHigh = data[i].TempHigh;
-            console.log(tempLow)
+            var tempsId = 'temps' + i;
             var tempsHtml = document.getElementById('temps' + i);
-            tempsHtml.innerHTML = "test";
+            tempsHtml.innerHTML = tempLow + '<i class="wi-celsius"></i> / ' + tempHigh + '<i class="wi-celsius"></i>';
         }
     });
 };

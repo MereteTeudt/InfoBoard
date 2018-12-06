@@ -37,3 +37,6 @@ a {
         margin-top: 2%;
     }
 }
+.borderColor {
+    border-color: rgba(0, 0, 0, 0.1);
+}
