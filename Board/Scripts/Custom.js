@@ -10,12 +10,34 @@
     var t = setTimeout(startTime, 500);
 }
 function checkTime(i) {
-    if (i < 10) { i = "0" + i };  // add zero in front of numbers < 10
+    if (i < 10) { i = "0" + i }; 
     return i;
 }
+function resetAtMidnight() {
+    console.log('run');
+    var now = new Date();
+    var night = new Date(
+        now.getFullYear(),
+        now.getMonth(),
+        now.getDate() + 1, 
+        0, 0, 0 
+    );
+    var msToMidnight = night.getTime() - now.getTime();
+    console.log(msToMidnight);
+    setTimeout(function () {
+        console.log('test');
+        reloadPage();
+        resetAtMidnight();
+    }, msToMidnight);
+}
+function reloadPage() {
+    console.log('reload');
+    location.reload(true);
+};
 
 var apiURL = "http://localhost:12892/api/WeatherAPI"
-var timer = setInterval(getFunction, 10000);
+var timer = setInterval(getFunction, 600000);
+
 function getFunction() {
     $.get(apiURL, function (data, status) {
         console.log(data);

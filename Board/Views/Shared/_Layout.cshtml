@@ -8,7 +8,7 @@
     @Scripts.Render("~/bundles/modernizr")
     @Styles.Render("~/Content/css")
 </head>
-<body class="BodyMargin" onload="startTime()">
+<body class="BodyMargin" onload="startTime(), resetAtMidnight()">
     <div class="container-fluid">
         <div class="row">
             <div class="col-12 p-0 d-flex flex-wrap fixed-top justify-content-center AspITGreenGradient">
@@ -81,6 +81,5 @@
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/customjs")
     @RenderSection("scripts", required: false)
-    <script src="~/Scripts/Custom.js"></script>
 </body>
 </html>

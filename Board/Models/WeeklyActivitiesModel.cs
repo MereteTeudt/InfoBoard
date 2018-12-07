@@ -11,6 +11,7 @@ namespace Board.Models
         {
             Quote = new QuoteModel();
             Assembly = new AssemblyModel();
+            Friday = new FridayActivity();
         }
         public QuoteModel Quote { get; set; }
 

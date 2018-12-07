@@ -10,7 +10,7 @@ namespace Board.Models
     {
         private WeeklyMenuModel weeklyMenu;
 
-        private WeeklyActivitiesModel weeklyTheme;
+        private WeeklyActivitiesModel weeklyActivities;
 
 
         public InfoBoardModel()
@@ -40,11 +40,11 @@ namespace Board.Models
         {
             get
             {
-                return weeklyTheme;
+                return weeklyActivities;
             }
             set
             {
-                weeklyTheme = value;
+                weeklyActivities = value;
             }
         }
 

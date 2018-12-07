@@ -5,8 +5,8 @@
 @model Board.Models.InfoBoardModel
 
 <div class="jumbotron jumbotron-fluid">
-    <div class="container">
-        <h1 class="display-4">Administration</h1>
+    <div class="container mt-5">
+        <h1 class="text-center">Administration</h1>
     </div>
 </div>
     <div class="container">
@@ -27,11 +27,11 @@
                             <div class="col-md-10">
                                 <blockquote class="blockquote mb-0">
                                     <p>
-                                        @Html.DisplayTextFor(model => model.WeeklyTheme.Quote.QuoteText)
+                                        @Html.DisplayTextFor(model => model.WeeklyActivities.Quote.QuoteText)
                                     </p>
                                     <footer class="blockquote-footer">
                                         <cite title="Source Title">
-                                            @Html.DisplayTextFor(model => model.WeeklyTheme.Quote.QuoteAuthor)
+                                            @Html.DisplayTextFor(model => model.WeeklyActivities.Quote.QuoteAuthor)
                                         </cite>
                                     </footer>
                                 </blockquote>
@@ -54,11 +54,11 @@
                                 {
                                     <label for="quoteText" class="col-md-3 control-label">Citat</label>
                                     <div class="form-group col-md-9">
-                                        @Html.TextBoxFor(model => model.WeeklyTheme.Quote.QuoteText, new { @class = "form-control" })
+                                        @Html.TextBoxFor(model => model.WeeklyActivities.Quote.QuoteText, new { @class = "form-control" })
                                     </div>
                                     <label for="quoteAuthor" class="col-md-3 control-label">Forfatter</label>
                                     <div class="form-group col-md-9">
-                                        @Html.TextBoxFor(model => model.WeeklyTheme.Quote.QuoteAuthor, new { @class = "form-control" })
+                                        @Html.TextBoxFor(model => model.WeeklyActivities.Quote.QuoteAuthor, new { @class = "form-control" })
                                     </div>
                                     <div class="form-group">
                                         <div class="text-right">
@@ -86,10 +86,10 @@
                     <li class="list-group-item">
                         <div class="d-flex">
                             <div class="col-md-4">
-                                <img src="@Url.Content(Model.WeeklyTheme.Assembly.ImagePath)" alt="Billede" class="img-thumbnail" />
+                                <img src="@Url.Content(Model.WeeklyActivities.Assembly.ImagePath)" alt="Billede" class="img-thumbnail" />
                             </div>
                             <div class="col-md-8 text-left p-2">
-                                <h2 class="display-4 text-uppercase">Tema: @Html.DisplayTextFor(model => model.WeeklyTheme.Assembly.AssemblyTheme)</h2>
+                                <h2 class="display-4 text-uppercase">Tema: @Html.DisplayTextFor(model => model.WeeklyActivities.Assembly.AssemblyTheme)</h2>
                             </div>
                         </div>
                     </li>
@@ -109,11 +109,11 @@
                                 {
                                     <label for="themeImage" class="col-md-3 control-label">Tema</label>
                                     <div class="form-group col-md-9">
-                                        @Html.TextBoxFor(model => model.WeeklyTheme.Assembly.AssemblyTheme, new { @class = "form-control" })
+                                        @Html.TextBoxFor(model => model.WeeklyActivities.Assembly.AssemblyTheme, new { @class = "form-control" })
                                     </div>
                                     <label for="quoteAuthor" class="col-md-3 control-label">Billede</label>
                                     <div class="form-group col-md-9">
-                                        @Html.TextBoxFor(model => model.WeeklyTheme.Assembly.ImageFile, new { type = "file" })
+                                        @Html.TextBoxFor(model => model.WeeklyActivities.Assembly.ImageFile, new { type = "file" })
                                     </div>
                                     <div class="form-group">
                                         <div class="text-right">
@@ -138,48 +138,44 @@
                         </button>
                     </div>
                 </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">
-                        <div>
-                            <div class="col-md-12">
-                                <table class="table table-bordered table-sm m-2">
-                                    <tbody>
-                                        <tr>
-                                            <th scope="row">Mandag</th>
-                                            <td>@Html.DisplayTextFor(model => model.WeeklyMenu.Monday.Name)</td>
-                                            <td>@Html.DisplayTextFor(model => model.WeeklyMenu.Monday.RecipePath)</td>
-                                            <td><img src="@Url.Content(Model.WeeklyMenu.Monday.ImagePath)" alt="Billede" class="img-thumbnail" /></td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Tirsdag</th>
-                                            <td>@Html.DisplayTextFor(model => model.WeeklyMenu.Tuesday.Name)</td>
-                                            <td>@Html.DisplayTextFor(model => model.WeeklyMenu.Tuesday.RecipePath)</td>
-                                            <td><img src="@Url.Content(Model.WeeklyMenu.Tuesday.ImagePath)" alt="Billede" class="img-thumbnail" /></td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Onsdag</th>
-                                            <td>@Html.DisplayTextFor(model => model.WeeklyMenu.Wednesday.Name)</td>
-                                            <td>@Html.DisplayTextFor(model => model.WeeklyMenu.Wednesday.RecipePath)</td>
-                                            <td><img src="@Url.Content(Model.WeeklyMenu.Wednesday.ImagePath)" alt="Billede" class="img-thumbnail" /></td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Torsdag</th>
-                                            <td>@Html.DisplayTextFor(model => model.WeeklyMenu.Thursday.Name)</td>
-                                            <td>@Html.DisplayTextFor(model => model.WeeklyMenu.Thursday.RecipePath)</td>
-                                            <td><img src="@Url.Content(Model.WeeklyMenu.Thursday.ImagePath)" alt="Billede" class="img-thumbnail" /></td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Fredag</th>
-                                            <td>@Html.DisplayTextFor(model => model.WeeklyMenu.Friday.Name)</td>
-                                            <td>@Html.DisplayTextFor(model => model.WeeklyMenu.Friday.RecipePath)</td>
-                                            <td><img src="@Url.Content(Model.WeeklyMenu.Friday.ImagePath)" alt="Billede" class="img-thumbnail" /></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
+                <div class="card-body">
+                    <div class="col-md-12 p-0 d-flex justify-content-center">
+                        <table class="table table-bordered m-2">
+                            <tbody>
+                                <tr>
+                                    <th scope="row">Mandag</th>
+                                    <td>@Html.DisplayTextFor(model => model.WeeklyMenu.Monday.Name)</td>
+                                    <td><a href="@Html.DisplayTextFor(model => model.WeeklyMenu.Monday.RecipePath)">Link</a></td>
+                                    <td><img src="@Url.Content(Model.WeeklyMenu.Monday.ImagePath)" alt="Billede" class="img-thumbnail" /></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Tirsdag</th>
+                                    <td>@Html.DisplayTextFor(model => model.WeeklyMenu.Tuesday.Name)</td>
+                                    <td><a href="@Html.DisplayTextFor(model => model.WeeklyMenu.Tuesday.RecipePath)">Link</a></td>
+                                    <td><img src="@Url.Content(Model.WeeklyMenu.Tuesday.ImagePath)" alt="Billede" class="img-thumbnail" /></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Onsdag</th>
+                                    <td>@Html.DisplayTextFor(model => model.WeeklyMenu.Wednesday.Name)</td>
+                                    <td><a href="@Html.DisplayTextFor(model => model.WeeklyMenu.Wednesday.RecipePath)">Link</a></td>
+                                    <td><img src="@Url.Content(Model.WeeklyMenu.Wednesday.ImagePath)" alt="Billede" class="img-thumbnail" /></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Torsdag</th>
+                                    <td>@Html.DisplayTextFor(model => model.WeeklyMenu.Thursday.Name)</td>
+                                    <td><a href="@Html.DisplayTextFor(model => model.WeeklyMenu.Thursday.RecipePath)">Link</a></td>
+                                    <td><img src="@Url.Content(Model.WeeklyMenu.Thursday.ImagePath)" alt="Billede" class="img-thumbnail" /></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Fredag</th>
+                                    <td>@Html.DisplayTextFor(model => model.WeeklyMenu.Friday.Name)</td>
+                                    <td><a href="@Html.DisplayTextFor(model => model.WeeklyMenu.Friday.RecipePath)">Link</a></td>
+                                    <td><img src="@Url.Content(Model.WeeklyMenu.Friday.ImagePath)" alt="Billede" class="img-thumbnail" /></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
                 <!--Ugens Menu Modal-->
                 <div class="modal fade" id="MenuModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                     <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
