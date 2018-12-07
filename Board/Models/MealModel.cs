@@ -17,7 +17,13 @@ namespace Board.Models
         }
 
         public MealModel()
-        { }
+        {
+            Name = "Ingen data";
+
+            RecipePath = "Ingen data";
+
+            ImagePath = "~/Images/default-image.jpg";
+        }
 
         public string Name { get; set; }
 

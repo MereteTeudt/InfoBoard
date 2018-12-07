@@ -10,17 +10,17 @@ namespace Board.Controllers
 {
     public class AdministrationController : Controller
     {
-        public InfoBoardModel infoBoardModel = new InfoBoardModel();
+        public InfoBoardModel infoBoardModel = DatabaseAccess.GetInfoBoard();
         // GET: Administration
         public ActionResult Index()
         {
-            infoBoardModel = InfoBoardModel.TestBoard();
             return View("Index", infoBoardModel);
         }
 
         public ActionResult EditQuote(InfoBoardModel infoBoard)
         {
             infoBoardModel.WeeklyActivities.Quote = infoBoard.WeeklyActivities.Quote;
+            DatabaseAccess.SetInfoBoard(infoBoardModel);
             return View("Index", infoBoardModel);
         }
 
@@ -40,7 +40,7 @@ namespace Board.Controllers
                 string fileName = Path.GetFileName(imageFile.FileName);
                 imageFile.SaveAs(path + fileName);
             }
-
+            DatabaseAccess.SetInfoBoard(infoBoardModel);
             return View("Index", infoBoardModel);
         }
 
@@ -54,7 +54,7 @@ namespace Board.Controllers
                 Directory.CreateDirectory(path);
             }
 
-            foreach (MealModel model in WeeklyMenuModel.Week)
+            foreach (MealModel model in infoBoard.WeeklyMenu.Week)
             {
                 HttpPostedFileBase imageFile = model.ImageFile;
                 if (imageFile != null)
@@ -63,6 +63,7 @@ namespace Board.Controllers
                     imageFile.SaveAs(path + fileName);
                 }
             }
+            DatabaseAccess.SetInfoBoard(infoBoardModel);
             return View("Index", infoBoardModel);
         }
     }

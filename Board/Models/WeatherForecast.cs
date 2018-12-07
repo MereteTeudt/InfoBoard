@@ -26,13 +26,13 @@ namespace Board.Models
         {
             get
             {
-                return DatabaseAccess.Get();
+                return DatabaseAccess.GetWeather();
             }
         }
 
         private static async void OnTimedEvent(object source, ElapsedEventArgs e)
         {
-            bool result = await DatabaseAccess.Set();
+            bool result = await DatabaseAccess.SetWeather();
         }
     }
 }

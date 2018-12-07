@@ -262,6 +262,7 @@
     <Content Include="Images\aspit_aspin_logo_aspin.png" />
     <Content Include="Images\aspit_aspin_logo_aspit.png" />
     <Content Include="Images\default-image.jpg" />
+    <Content Include="Images\friFredag.jpg" />
     <Content Include="Images\InfoBoardFood\RecipeOne.jpeg" />
     <Content Include="Images\InfoBoardFood\RecipeThree.jpeg" />
     <Content Include="Images\InfoBoardFood\RecipeTwo.jpg" />

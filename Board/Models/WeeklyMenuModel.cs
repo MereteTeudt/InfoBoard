@@ -9,42 +9,14 @@ namespace Board.Models
     {
         public WeeklyMenuModel()
         {
-            Monday = new MealModel();
-
-            Tuesday = new MealModel();
-
-            Wednesday = new MealModel();
-
-            Thursday = new MealModel();
-
-            Friday = new MealModel();
-
-            Week = new List<MealModel>
-            {
-                Monday,
-                Tuesday,
-                Wednesday,
-                Thursday,
-                Friday
-            };
-
-            DayToday = DateTime.Now.DayOfWeek;
-
+            Week = new List<MealModel>();
             Today = new MealModel();
+            DayToday = DateTime.Today.DayOfWeek;
         }
-        public MealModel Monday { get; set; }
 
-        public MealModel Tuesday { get; set; }
-
-        public MealModel Wednesday { get; set; }
-
-        public MealModel Thursday { get; set; }
-
-        public MealModel Friday { get; set; }
+        public List<MealModel> Week { get; set; }
 
         public MealModel Today { get; set; }
-
-        public static List<MealModel> Week { get; set; }
 
         public static DayOfWeek DayToday { get; set; }
 
@@ -54,23 +26,23 @@ namespace Board.Models
 
             if (DayToday == DayOfWeek.Monday)
             {
-                todaysMeal = model.WeeklyMenu.Monday;
+                todaysMeal = model.WeeklyMenu.Week[0];
             }
             else if (DayToday == DayOfWeek.Tuesday)
             {
-                todaysMeal = model.WeeklyMenu.Tuesday;
+                todaysMeal = model.WeeklyMenu.Week[1];
             }
             else if (DayToday == DayOfWeek.Wednesday)
             {
-                todaysMeal = model.WeeklyMenu.Wednesday;
+                todaysMeal = model.WeeklyMenu.Week[2];
             }
             else if (DayToday == DayOfWeek.Thursday)
             {
-                todaysMeal = model.WeeklyMenu.Thursday;
+                todaysMeal = model.WeeklyMenu.Week[3];
             }
             else
             {
-                todaysMeal = model.WeeklyMenu.Friday;
+                todaysMeal = model.WeeklyMenu.Week[4];
             }
 
             return todaysMeal;

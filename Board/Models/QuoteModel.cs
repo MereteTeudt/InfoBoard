@@ -7,6 +7,12 @@ namespace Board.Models
 {
     public class QuoteModel
     {
+        public QuoteModel()
+        {
+            QuoteText = "ingen data";
+
+            QuoteAuthor = "ingen data";
+        }
         public string QuoteText { get; set; }
 
         public string QuoteAuthor { get; set; }

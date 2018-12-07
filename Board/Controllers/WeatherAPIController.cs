@@ -17,7 +17,7 @@ namespace Board.Controllers
         // GET: api/WeatherAPI
         public List<WeatherModel> Get()
         {
-            return DatabaseAccess.Get();
+            return DatabaseAccess.GetWeather();
         }
     }
 }

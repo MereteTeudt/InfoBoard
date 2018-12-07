@@ -144,33 +144,33 @@
                             <tbody>
                                 <tr>
                                     <th scope="row">Mandag</th>
-                                    <td>@Html.DisplayTextFor(model => model.WeeklyMenu.Monday.Name)</td>
-                                    <td><a href="@Html.DisplayTextFor(model => model.WeeklyMenu.Monday.RecipePath)">Link</a></td>
-                                    <td><img src="@Url.Content(Model.WeeklyMenu.Monday.ImagePath)" alt="Billede" class="img-thumbnail" /></td>
+                                    <td>@Html.DisplayTextFor(model => model.WeeklyMenu.Week[0].Name)</td>
+                                    <td><a href="@Html.DisplayTextFor(model => model.WeeklyMenu.Week[0].RecipePath)">Link</a></td>
+                                    <td><img src="@Url.Content(Model.WeeklyMenu.Week[0].ImagePath)" alt="Billede" class="img-thumbnail" /></td>
                                 </tr>
                                 <tr>
                                     <th scope="row">Tirsdag</th>
-                                    <td>@Html.DisplayTextFor(model => model.WeeklyMenu.Tuesday.Name)</td>
-                                    <td><a href="@Html.DisplayTextFor(model => model.WeeklyMenu.Tuesday.RecipePath)">Link</a></td>
-                                    <td><img src="@Url.Content(Model.WeeklyMenu.Tuesday.ImagePath)" alt="Billede" class="img-thumbnail" /></td>
+                                    <td>@Html.DisplayTextFor(model => model.WeeklyMenu.Week[1].Name)</td>
+                                    <td><a href="@Html.DisplayTextFor(model => model.WeeklyMenu.Week[1].RecipePath)">Link</a></td>
+                                    <td><img src="@Url.Content(Model.WeeklyMenu.Week[1].ImagePath)" alt="Billede" class="img-thumbnail" /></td>
                                 </tr>
                                 <tr>
                                     <th scope="row">Onsdag</th>
-                                    <td>@Html.DisplayTextFor(model => model.WeeklyMenu.Wednesday.Name)</td>
-                                    <td><a href="@Html.DisplayTextFor(model => model.WeeklyMenu.Wednesday.RecipePath)">Link</a></td>
-                                    <td><img src="@Url.Content(Model.WeeklyMenu.Wednesday.ImagePath)" alt="Billede" class="img-thumbnail" /></td>
+                                    <td>@Html.DisplayTextFor(model => model.WeeklyMenu.Week[2].Name)</td>
+                                    <td><a href="@Html.DisplayTextFor(model => model.WeeklyMenu.Week[2].RecipePath)">Link</a></td>
+                                    <td><img src="@Url.Content(Model.WeeklyMenu.Week[2].ImagePath)" alt="Billede" class="img-thumbnail" /></td>
                                 </tr>
                                 <tr>
                                     <th scope="row">Torsdag</th>
-                                    <td>@Html.DisplayTextFor(model => model.WeeklyMenu.Thursday.Name)</td>
-                                    <td><a href="@Html.DisplayTextFor(model => model.WeeklyMenu.Thursday.RecipePath)">Link</a></td>
-                                    <td><img src="@Url.Content(Model.WeeklyMenu.Thursday.ImagePath)" alt="Billede" class="img-thumbnail" /></td>
+                                    <td>@Html.DisplayTextFor(model => model.WeeklyMenu.Week[3].Name)</td>
+                                    <td><a href="@Html.DisplayTextFor(model => model.WeeklyMenu.Week[3].RecipePath)">Link</a></td>
+                                    <td><img src="@Url.Content(Model.WeeklyMenu.Week[3].ImagePath)" alt="Billede" class="img-thumbnail" /></td>
                                 </tr>
                                 <tr>
                                     <th scope="row">Fredag</th>
-                                    <td>@Html.DisplayTextFor(model => model.WeeklyMenu.Friday.Name)</td>
-                                    <td><a href="@Html.DisplayTextFor(model => model.WeeklyMenu.Friday.RecipePath)">Link</a></td>
-                                    <td><img src="@Url.Content(Model.WeeklyMenu.Friday.ImagePath)" alt="Billede" class="img-thumbnail" /></td>
+                                    <td>@Html.DisplayTextFor(model => model.WeeklyMenu.Week[4].Name)</td>
+                                    <td><a href="@Html.DisplayTextFor(model => model.WeeklyMenu.Week[4].RecipePath)">Link</a></td>
+                                    <td><img src="@Url.Content(Model.WeeklyMenu.Week[4].ImagePath)" alt="Billede" class="img-thumbnail" /></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -193,15 +193,15 @@
                                     <div class="form-row">
                                         <div class="form-group col-md-4">
                                             <label for="Name" class="control-label">Navn</label>
-                                            @Html.TextBoxFor(model => model.WeeklyMenu.Monday.Name, new { @class = "form-control" })
+                                            @Html.TextBoxFor(model => model.WeeklyMenu.Week[0].Name, new { @class = "form-control" })
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="RecipePath" class="control-label">Opskrift</label>
-                                            @Html.TextBoxFor(model => model.WeeklyMenu.Monday.RecipePath, new { @class = "form-control" })
+                                            @Html.TextBoxFor(model => model.WeeklyMenu.Week[0].RecipePath, new { @class = "form-control" })
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="ImageFile" class="control-label">Billede</label>
-                                            @Html.TextBoxFor(model => model.WeeklyMenu.Monday.ImageFile, new { type = "file" })
+                                            @Html.TextBoxFor(model => model.WeeklyMenu.Week[0].ImageFile, new { type = "file" })
                                         </div>
                                     </div>
                                     <hr class="col-md-12" />
@@ -209,15 +209,15 @@
                                     <div class="form-row">
                                         <div class="form-group col-md-4">
                                             <label for="Name" class="control-label">Navn</label>
-                                            @Html.TextBoxFor(model => model.WeeklyMenu.Tuesday.Name, new { @class = "form-control" })
+                                            @Html.TextBoxFor(model => model.WeeklyMenu.Week[1].Name, new { @class = "form-control" })
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="RecipePath" class="control-label">Opskrift</label>
-                                            @Html.TextBoxFor(model => model.WeeklyMenu.Tuesday.RecipePath, new { @class = "form-control" })
+                                            @Html.TextBoxFor(model => model.WeeklyMenu.Week[1].RecipePath, new { @class = "form-control" })
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="ImageFile" class="control-label">Billede</label>
-                                            @Html.TextBoxFor(model => model.WeeklyMenu.Tuesday.ImageFile, new { type = "file" })
+                                            @Html.TextBoxFor(model => model.WeeklyMenu.Week[1].ImageFile, new { type = "file" })
                                         </div>
                                     </div>
                                     <hr class="col-md-12" />
@@ -225,15 +225,15 @@
                                     <div class="form-row">
                                         <div class="form-group col-md-4">
                                             <label for="Name" class="control-label">Navn</label>
-                                            @Html.TextBoxFor(model => model.WeeklyMenu.Wednesday.Name, new { @class = "form-control" })
+                                            @Html.TextBoxFor(model => model.WeeklyMenu.Week[2].Name, new { @class = "form-control" })
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="RecipePath" class="control-label">Opskrift</label>
-                                            @Html.TextBoxFor(model => model.WeeklyMenu.Wednesday.RecipePath, new { @class = "form-control" })
+                                            @Html.TextBoxFor(model => model.WeeklyMenu.Week[2].RecipePath, new { @class = "form-control" })
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="ImageFile" class="control-label">Billede</label>
-                                            @Html.TextBoxFor(model => model.WeeklyMenu.Wednesday.ImageFile, new { type = "file" })
+                                            @Html.TextBoxFor(model => model.WeeklyMenu.Week[2].ImageFile, new { type = "file" })
                                         </div>
                                     </div>
                                     <hr class="col-md-12" />
@@ -241,15 +241,15 @@
                                     <div class="form-row">
                                         <div class="form-group col-md-4">
                                             <label for="Name" class="control-label">Navn</label>
-                                            @Html.TextBoxFor(model => model.WeeklyMenu.Thursday.Name, new { @class = "form-control" })
+                                            @Html.TextBoxFor(model => model.WeeklyMenu.Week[3].Name, new { @class = "form-control" })
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="RecipePath" class="control-label">Opskrift</label>
-                                            @Html.TextBoxFor(model => model.WeeklyMenu.Thursday.RecipePath, new { @class = "form-control" })
+                                            @Html.TextBoxFor(model => model.WeeklyMenu.Week[3].RecipePath, new { @class = "form-control" })
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="ImageFile" class="control-label">Billede</label>
-                                            @Html.TextBoxFor(model => model.WeeklyMenu.Thursday.ImageFile, new { type = "file" })
+                                            @Html.TextBoxFor(model => model.WeeklyMenu.Week[3].ImageFile, new { type = "file" })
                                         </div>
                                     </div>
                                     <hr class="col-md-12" />
@@ -257,15 +257,15 @@
                                     <div class="form-row">
                                         <div class="form-group col-md-4">
                                             <label for="Name" class="control-label">Navn</label>
-                                            @Html.TextBoxFor(model => model.WeeklyMenu.Friday.Name, new { @class = "form-control" })
+                                            @Html.TextBoxFor(model => model.WeeklyMenu.Week[4].Name, new { @class = "form-control" })
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="RecipePath" class="control-label">Opskrift</label>
-                                            @Html.TextBoxFor(model => model.WeeklyMenu.Friday.RecipePath, new { @class = "form-control" })
+                                            @Html.TextBoxFor(model => model.WeeklyMenu.Week[4].RecipePath, new { @class = "form-control" })
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="ImageFile" class="control-label">Billede</label>
-                                            @Html.TextBoxFor(model => model.WeeklyMenu.Friday.ImageFile, new { type = "file" })
+                                            @Html.TextBoxFor(model => model.WeeklyMenu.Week[4].ImageFile, new { type = "file" })
                                         </div>
                                     </div>
                                     <hr class="col-md-12" />

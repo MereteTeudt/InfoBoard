@@ -13,8 +13,8 @@ namespace Board.Controllers
         public InfoBoardModel infoBoardModel = new InfoBoardModel();
         public async Task<ActionResult> Index()
         {
-            bool result = await DatabaseAccess.Set();
-            infoBoardModel = InfoBoardModel.TestBoard();
+            bool result = await DatabaseAccess.SetWeather();
+            infoBoardModel = DatabaseAccess.GetInfoBoard();
             return View("Index", infoBoardModel);
         }
     }
