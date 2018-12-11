@@ -1,9 +1,11 @@
 ﻿using Board.Models;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Web;
+using System.Web.Helpers;
 using System.Web.Mvc;
 
 namespace Board.Controllers
@@ -26,19 +28,13 @@ namespace Board.Controllers
 
         public ActionResult EditTheme(InfoBoardModel infoBoard)
         {
+            string mapPath = Server.MapPath("~/Uploads/");
             infoBoardModel.WeeklyActivities.Assembly = infoBoard.WeeklyActivities.Assembly;
             HttpPostedFileBase imageFile = infoBoardModel.WeeklyActivities.Assembly.ImageFile;
 
-            string path = Server.MapPath("~/Uploads/");
-            if (!Directory.Exists(path))
-            {
-                Directory.CreateDirectory(path);
-            }
-
             if (imageFile != null)
             {
-                string fileName = Path.GetFileName(imageFile.FileName);
-                imageFile.SaveAs(path + fileName);
+                infoBoardModel.WeeklyActivities.Assembly.ImagePath = infoBoardModel.UploadImage(imageFile, mapPath);
             }
             DatabaseAccess.SetInfoBoard(infoBoardModel);
             return View("Index", infoBoardModel);
@@ -46,21 +42,15 @@ namespace Board.Controllers
 
         public ActionResult EditMenu(InfoBoardModel infoBoard)
         {
+            string mapPath = Server.MapPath("~/Uploads/");
             infoBoardModel.WeeklyMenu = infoBoard.WeeklyMenu;
 
-            string path = Server.MapPath("~/Uploads/");
-            if (!Directory.Exists(path))
+            for (int i = 0; i < 5; i++)
             {
-                Directory.CreateDirectory(path);
-            }
-
-            foreach (MealModel model in infoBoard.WeeklyMenu.Week)
-            {
-                HttpPostedFileBase imageFile = model.ImageFile;
+                HttpPostedFileBase imageFile = infoBoardModel.WeeklyMenu.Week[i].ImageFile;
                 if (imageFile != null)
                 {
-                    string fileName = Path.GetFileName(imageFile.FileName);
-                    imageFile.SaveAs(path + fileName);
+                    infoBoardModel.WeeklyMenu.Week[i].ImagePath = infoBoardModel.UploadImage(imageFile, mapPath);
                 }
             }
             DatabaseAccess.SetInfoBoard(infoBoardModel);

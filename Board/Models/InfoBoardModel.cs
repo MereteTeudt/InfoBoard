@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
@@ -11,7 +13,6 @@ namespace Board.Models
         private WeeklyMenuModel weeklyMenu;
 
         private WeeklyActivitiesModel weeklyActivities;
-
 
         public InfoBoardModel()
         {
@@ -50,5 +51,18 @@ namespace Board.Models
 
         public WeatherForecast Forecast { get; set; }
 
+        public string UploadImage(HttpPostedFileBase imageFile, string mapPath)
+        {
+            if (!Directory.Exists(mapPath))
+            {
+                Directory.CreateDirectory(mapPath);
+            }
+            string fileName = Path.GetFileName(imageFile.FileName);
+            mapPath += fileName;
+            Image image = Image.FromStream(imageFile.InputStream, true, true);
+            image.Save(mapPath);
+            string path = "/Uploads/" + fileName;
+            return path;
+        }
     }
 }
