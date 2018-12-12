@@ -10,13 +10,316 @@
     </div>
 </div>
     <div class="container">
-        <div class="">
+        <div class="card text-center p-0">
+            <div class="card-header d-flex">
+                <div class="col-md-4"></div>
+                <h5 class="card-title col-md-4">Citat</h5>
+                <div class="col-md-4 text-right">
+                    <button type="button" class="btn btn-primary text-right" data-toggle="modal" data-target="#QuoteModal">
+                        Rediger
+                    </button>
+                </div>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <div class="d-flex">
+                        <div class="col-12">
+                            <blockquote class="blockquote mb-0">
+                                <p>
+                                    @Html.DisplayTextFor(model => model.WeeklyActivities.Quote.QuoteText)
+                                </p>
+                                <footer class="blockquote-footer">
+                                    <cite title="Source Title">
+                                        @Html.DisplayTextFor(model => model.WeeklyActivities.Quote.QuoteAuthor)
+                                    </cite>
+                                </footer>
+                            </blockquote>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <!--Ugens Citat Modal-->
+            <div class="modal fade" id="QuoteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalCenterTitle">Ugens Citat</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body text-left">
+                            @using (Html.BeginForm("EditQuote", "Administration", FormMethod.Post, new { @class = "form-horizontal" }))
+                            {
+                                <label for="quoteText" class="col-md-3 control-label">Citat</label>
+                                <div class="form-group col-md-9">
+                                    @Html.TextBoxFor(model => model.WeeklyActivities.Quote.QuoteText, new { @class = "form-control" })
+                                </div>
+                                <label for="quoteAuthor" class="col-md-3 control-label">Forfatter</label>
+                                <div class="form-group col-md-9">
+                                    @Html.TextBoxFor(model => model.WeeklyActivities.Quote.QuoteAuthor, new { @class = "form-control" })
+                                </div>
+                                <div class="form-group">
+                                    <div class="text-right">
+                                        <button class="btn btn-info" type="submit">Gem</button>
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Anuller</button>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card text-center p-0">
+            <div class="card-header d-flex">
+                <div class="col-md-4"></div>
+                <h5 class="card-title col-md-4">Denne uge</h5>
+                <div class="col-md-4 text-right">
+                    <button type="button" class="btn btn-primary text-right" data-toggle="modal" data-target="#AssemblyModal">
+                        Rediger
+                    </button>
+                </div>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <div class="d-flex justify-content-center">
+                        <div class="col-md-4 text-left p-2 text-center">
+                            <h2 class="text-uppercase">Tema:</h2>
+                            <h2 class="text-uppercase">@Html.DisplayTextFor(model => model.WeeklyActivities.Assembly.AssemblyTheme)</h2>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="thumbnailBox">
+                                <img src="@Url.Content(Model.WeeklyActivities.Assembly.ImagePath)" alt="Billede" class="img-thumbnail" />
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div class="d-flex justify-content-center">
+                        <div class="col-md-4 text-left p-2 text-center">
+                            <h2 class="text-uppercase">Tema:</h2>
+                            <h2 class="text-uppercase">@Html.DisplayTextFor(model => model.WeeklyActivities.Friday.Name)</h2>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="thumbnailBox">
+                                <img src="@Url.Content(Model.WeeklyActivities.Friday.ImagePath)" alt="Billede" class="img-thumbnail" />
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <!--Ugens Morgensamlinger Modal-->
+            <div class="modal fade" id="AssemblyModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalCenterTitle">Morgensamling</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body text-left">
+                            @using (Html.BeginForm("EditTheme", "Administration", FormMethod.Post, new { @class = "form-horizontal", enctype="multipart/form-data" }))
+                            {
+                                <label for="themeImage" class="col-md-3 control-label">Tema</label>
+                                <div class="form-group col-md-9">
+                                    @Html.TextBoxFor(model => model.WeeklyActivities.Assembly.AssemblyTheme, new { @class = "form-control" })
+                                </div>
+                                <label for="quoteAuthor" class="col-md-3 control-label">Billede</label>
+                                <div class="form-group col-md-9">
+                                    @Html.TextBoxFor(model => model.WeeklyActivities.Assembly.ImageFile, new { type="file"})
+                                </div>
+                                <div class="form-group">
+                                    <div class="text-right">
+                                        <button class="btn btn-info" type="submit" value="Upload">Gem</button>
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Anuller</button>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Ugens Menu-->
+        <div class="card text-center p-0">
+            <div class="card-header d-flex">
+                <div class="col-md-4"></div>
+                <h5 class="card-title col-md-4">Menu</h5>
+                <div class="col-md-4 text-right">
+                    <button type="button" class="btn btn-primary text-right" data-toggle="modal" data-target="#MenuModal">
+                        Rediger
+                    </button>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="col-md-12 p-0 d-flex justify-content-center">
+                    <table class="table table-bordered m-2">
+                        <tbody>
+                            <tr>
+                                <th scope="row">Mandag</th>
+                                <td>@Html.DisplayTextFor(model => model.WeeklyMenu.Week[0].Name)</td>
+                                <td><a href="@Html.DisplayTextFor(model => model.WeeklyMenu.Week[0].RecipePath)">Link</a></td>
+                                <td>
+                                    <div class="thumbnailBox">
+                                        <img src="@Url.Content(Model.WeeklyMenu.Week[0].ImagePath)" alt="Billede" class="img-thumbnail" />
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Tirsdag</th>
+                                <td>@Html.DisplayTextFor(model => model.WeeklyMenu.Week[1].Name)</td>
+                                <td><a href="@Html.DisplayTextFor(model => model.WeeklyMenu.Week[1].RecipePath)">Link</a></td>
+                                <td>
+                                    <div class="thumbnailBox">
+                                        <img src="@Url.Content(Model.WeeklyMenu.Week[1].ImagePath)" alt="Billede" class="img-thumbnail" />
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Onsdag</th>
+                                <td>@Html.DisplayTextFor(model => model.WeeklyMenu.Week[2].Name)</td>
+                                <td><a href="@Html.DisplayTextFor(model => model.WeeklyMenu.Week[2].RecipePath)">Link</a></td>
+                                <td>
+                                    <div class="thumbnailBox">
+                                        <img src="@Url.Content(Model.WeeklyMenu.Week[2].ImagePath)" alt="Billede" class="img-thumbnail" />
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Torsdag</th>
+                                <td>@Html.DisplayTextFor(model => model.WeeklyMenu.Week[3].Name)</td>
+                                <td><a href="@Html.DisplayTextFor(model => model.WeeklyMenu.Week[3].RecipePath)">Link</a></td>
+                                <td>
+                                    <div class="thumbnailBox">
+                                        <img src="@Url.Content(Model.WeeklyMenu.Week[3].ImagePath)" alt="Billede" class="img-thumbnail" />
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Fredag</th>
+                                <td>@Html.DisplayTextFor(model => model.WeeklyMenu.Week[4].Name)</td>
+                                <td><a href="@Html.DisplayTextFor(model => model.WeeklyMenu.Week[4].RecipePath)">Link</a></td>
+                                <td>
+                                    <div class="thumbnailBox">
+                                        <img src="@Url.Content(Model.WeeklyMenu.Week[4].ImagePath)" alt="Billede" class="img-thumbnail" />
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!--Ugens Menu Modal-->
+            <div class="modal fade" id="MenuModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalCenterTitle">Ugens Menu</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body text-left">
+                            @using (Html.BeginForm("EditMenu", "Administration", FormMethod.Post, new { @class = "form-horizontal", enctype = "multipart/form-data" }))
+                            {
+                                <h5 class="text-center">Mandag</h5>
+                                <div class="form-row">
+                                    <div class="form-group col-md-4">
+                                        <label for="Name" class="control-label">Navn</label>
+                                        @Html.TextBoxFor(model => model.WeeklyMenu.Week[0].Name, new { @class = "form-control" })
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="RecipePath" class="control-label">Opskrift</label>
+                                        @Html.TextBoxFor(model => model.WeeklyMenu.Week[0].RecipePath, new { @class = "form-control" })
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="ImageFile" class="control-label">Billede</label>
+                                        @Html.TextBoxFor(model => model.WeeklyMenu.Week[0].ImageFile, new { type = "file" })
+                                    </div>
+                                </div>
+                                <hr class="col-md-12" />
+                                <h5 class="text-center">Tirsdag</h5>
+                                <div class="form-row">
+                                    <div class="form-group col-md-4">
+                                        <label for="Name" class="control-label">Navn</label>
+                                        @Html.TextBoxFor(model => model.WeeklyMenu.Week[1].Name, new { @class = "form-control" })
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="RecipePath" class="control-label">Opskrift</label>
+                                        @Html.TextBoxFor(model => model.WeeklyMenu.Week[1].RecipePath, new { @class = "form-control" })
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="ImageFile" class="control-label">Billede</label>
+                                        @Html.TextBoxFor(model => model.WeeklyMenu.Week[1].ImageFile, new { type = "file" })
+                                    </div>
+                                </div>
+                                <hr class="col-md-12" />
+                                <h5 class="text-center">Onsdag</h5>
+                                <div class="form-row">
+                                    <div class="form-group col-md-4">
+                                        <label for="Name" class="control-label">Navn</label>
+                                        @Html.TextBoxFor(model => model.WeeklyMenu.Week[2].Name, new { @class = "form-control" })
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="RecipePath" class="control-label">Opskrift</label>
+                                        @Html.TextBoxFor(model => model.WeeklyMenu.Week[2].RecipePath, new { @class = "form-control" })
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="ImageFile" class="control-label">Billede</label>
+                                        @Html.TextBoxFor(model => model.WeeklyMenu.Week[2].ImageFile, new { type = "file" })
+                                    </div>
+                                </div>
+                                <hr class="col-md-12" />
+                                <h5 class="text-center">Torsdag</h5>
+                                <div class="form-row">
+                                    <div class="form-group col-md-4">
+                                        <label for="Name" class="control-label">Navn</label>
+                                        @Html.TextBoxFor(model => model.WeeklyMenu.Week[3].Name, new { @class = "form-control" })
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="RecipePath" class="control-label">Opskrift</label>
+                                        @Html.TextBoxFor(model => model.WeeklyMenu.Week[3].RecipePath, new { @class = "form-control" })
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="ImageFile" class="control-label">Billede</label>
+                                        @Html.TextBoxFor(model => model.WeeklyMenu.Week[3].ImageFile, new { type = "file" })
+                                    </div>
+                                </div>
+                                <hr class="col-md-12" />
+                                <h5 class="text-center">Fredag</h5>
+                                <div class="form-row">
+                                    <div class="form-group col-md-4">
+                                        <label for="Name" class="control-label">Navn</label>
+                                        @Html.TextBoxFor(model => model.WeeklyMenu.Week[4].Name, new { @class = "form-control" })
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="RecipePath" class="control-label">Opskrift</label>
+                                        @Html.TextBoxFor(model => model.WeeklyMenu.Week[4].RecipePath, new { @class = "form-control" })
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="ImageFile" class="control-label">Billede</label>
+                                        @Html.TextBoxFor(model => model.WeeklyMenu.Week[4].ImageFile, new { type = "file" })
+                                    </div>
+                                </div>
+                                <hr class="col-md-12" />
+                                <div class="form-group">
+                                    <div class="text-right">
+                                        <button class="btn btn-info" type="submit" value="Upload">Gem</button>
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Anuller</button>
+                                    </div>
+                                </div>}
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="card text-center p-0">
                 <div class="card-header d-flex">
                     <div class="col-md-4"></div>
-                    <h5 class="card-title col-md-4">Citat</h5>
+                    <h5 class="card-title col-md-4">Event</h5>
                     <div class="col-md-4 text-right">
-                        <button type="button" class="btn btn-primary text-right" data-toggle="modal" data-target="#QuoteModal">
+                        <button type="button" class="btn btn-primary text-right" data-toggle="modal" data-target="#EventModal">
                             Rediger
                         </button>
                     </div>
@@ -25,289 +328,31 @@
                     <li class="list-group-item">
                         <div class="d-flex">
                             <div class="col-12">
-                                <blockquote class="blockquote mb-0">
-                                    <p>
-                                        @Html.DisplayTextFor(model => model.WeeklyActivities.Quote.QuoteText)
-                                    </p>
-                                    <footer class="blockquote-footer">
-                                        <cite title="Source Title">
-                                            @Html.DisplayTextFor(model => model.WeeklyActivities.Quote.QuoteAuthor)
-                                        </cite>
-                                    </footer>
-                                </blockquote>
+                                <p>@Html.DisplayTextFor(model => model.Event.EventText) </p>
                             </div>
                         </div>
                     </li>
                 </ul>
-                <!--Ugens Citat Modal-->
-                <div class="modal fade" id="QuoteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <!--Event Modal-->
+                <div class="modal fade" id="EventModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalCenterTitle">Ugens Citat</h5>
+                                <h5 class="modal-title" id="exampleModalCenterTitle">Event</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
                             <div class="modal-body text-left">
-                                @using (Html.BeginForm("EditQuote", "Administration", FormMethod.Post, new { @class = "form-horizontal" }))
+                                @using (Html.BeginForm("EditEvent", "Administration", FormMethod.Post, new { @class = "form-horizontal" }))
                                 {
-                                    <label for="quoteText" class="col-md-3 control-label">Citat</label>
                                     <div class="form-group col-md-9">
-                                        @Html.TextBoxFor(model => model.WeeklyActivities.Quote.QuoteText, new { @class = "form-control" })
-                                    </div>
-                                    <label for="quoteAuthor" class="col-md-3 control-label">Forfatter</label>
-                                    <div class="form-group col-md-9">
-                                        @Html.TextBoxFor(model => model.WeeklyActivities.Quote.QuoteAuthor, new { @class = "form-control" })
+                                        <label for="EventText" class="col-md-3 control-label">Tekst</label>
+                                        @Html.TextBoxFor(model => model.Event.EventText, new { @class = "form-control" })
                                     </div>
                                     <div class="form-group">
                                         <div class="text-right">
                                             <button class="btn btn-info" type="submit">Gem</button>
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Anuller</button>
-                                        </div>
-                                    </div>
-                                }
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="card text-center p-0">
-                <div class="card-header d-flex">
-                    <div class="col-md-4"></div>
-                    <h5 class="card-title col-md-4">Denne uge</h5>
-                    <div class="col-md-4 text-right">
-                        <button type="button" class="btn btn-primary text-right" data-toggle="modal" data-target="#AssemblyModal">
-                            Rediger
-                        </button>
-                    </div>
-                </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">
-                        <div class="d-flex justify-content-center">
-                            <div class="col-md-4 text-left p-2 text-center">
-                                <h2 class="text-uppercase">Tema:</h2>
-                                <h2 class="text-uppercase">@Html.DisplayTextFor(model => model.WeeklyActivities.Assembly.AssemblyTheme)</h2>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="thumbnailBox">
-                                    <img src="@Url.Content(Model.WeeklyActivities.Assembly.ImagePath)" alt="Billede" class="img-thumbnail" />
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="list-group-item">
-                        <div class="d-flex justify-content-center">
-                            <div class="col-md-4 text-left p-2 text-center">
-                                <h2 class="text-uppercase">Tema:</h2>
-                                <h2 class="text-uppercase">@Html.DisplayTextFor(model => model.WeeklyActivities.Friday.Name)</h2>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="thumbnailBox">
-                                    <img src="@Url.Content(Model.WeeklyActivities.Friday.ImagePath)" alt="Billede" class="img-thumbnail" />
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-                <!--Ugens Morgensamlinger Modal-->
-                <div class="modal fade" id="AssemblyModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalCenterTitle">Morgensamling</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body text-left">
-                                @using (Html.BeginForm("EditTheme", "Administration", FormMethod.Post, new { @class = "form-horizontal", enctype="multipart/form-data" }))
-                                {
-                                    <label for="themeImage" class="col-md-3 control-label">Tema</label>
-                                    <div class="form-group col-md-9">
-                                        @Html.TextBoxFor(model => model.WeeklyActivities.Assembly.AssemblyTheme, new { @class = "form-control" })
-                                    </div>
-                                    <label for="quoteAuthor" class="col-md-3 control-label">Billede</label>
-                                    <div class="form-group col-md-9">
-                                        @Html.TextBoxFor(model => model.WeeklyActivities.Assembly.ImageFile, new { type="file"})
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="text-right">
-                                            <button class="btn btn-info" type="submit" value="Upload">Gem</button>
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Anuller</button>
-                                        </div>
-                                    </div>
-                                }
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--Ugens Menu-->
-            <div class="card text-center p-0">
-                <div class="card-header d-flex">
-                    <div class="col-md-4"></div>
-                    <h5 class="card-title col-md-4">Menu</h5>
-                    <div class="col-md-4 text-right">
-                        <button type="button" class="btn btn-primary text-right" data-toggle="modal" data-target="#MenuModal">
-                            Rediger
-                        </button>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <div class="col-md-12 p-0 d-flex justify-content-center">
-                        <table class="table table-bordered m-2">
-                            <tbody>
-                                <tr>
-                                    <th scope="row">Mandag</th>
-                                    <td>@Html.DisplayTextFor(model => model.WeeklyMenu.Week[0].Name)</td>
-                                    <td><a href="@Html.DisplayTextFor(model => model.WeeklyMenu.Week[0].RecipePath)">Link</a></td>
-                                    <td>
-                                        <div class="thumbnailBox">
-                                            <img src="@Url.Content(Model.WeeklyMenu.Week[0].ImagePath)" alt="Billede" class="img-thumbnail" />
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">Tirsdag</th>
-                                    <td>@Html.DisplayTextFor(model => model.WeeklyMenu.Week[1].Name)</td>
-                                    <td><a href="@Html.DisplayTextFor(model => model.WeeklyMenu.Week[1].RecipePath)">Link</a></td>
-                                    <td>
-                                        <div class="thumbnailBox">
-                                            <img src="@Url.Content(Model.WeeklyMenu.Week[1].ImagePath)" alt="Billede" class="img-thumbnail" />
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">Onsdag</th>
-                                    <td>@Html.DisplayTextFor(model => model.WeeklyMenu.Week[2].Name)</td>
-                                    <td><a href="@Html.DisplayTextFor(model => model.WeeklyMenu.Week[2].RecipePath)">Link</a></td>
-                                    <td>
-                                        <div class="thumbnailBox">
-                                            <img src="@Url.Content(Model.WeeklyMenu.Week[2].ImagePath)" alt="Billede" class="img-thumbnail" />
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">Torsdag</th>
-                                    <td>@Html.DisplayTextFor(model => model.WeeklyMenu.Week[3].Name)</td>
-                                    <td><a href="@Html.DisplayTextFor(model => model.WeeklyMenu.Week[3].RecipePath)">Link</a></td>
-                                    <td>
-                                        <div class="thumbnailBox">
-                                            <img src="@Url.Content(Model.WeeklyMenu.Week[3].ImagePath)" alt="Billede" class="img-thumbnail" />
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">Fredag</th>
-                                    <td>@Html.DisplayTextFor(model => model.WeeklyMenu.Week[4].Name)</td>
-                                    <td><a href="@Html.DisplayTextFor(model => model.WeeklyMenu.Week[4].RecipePath)">Link</a></td>
-                                    <td>
-                                        <div class="thumbnailBox">
-                                            <img src="@Url.Content(Model.WeeklyMenu.Week[4].ImagePath)" alt="Billede" class="img-thumbnail" />
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <!--Ugens Menu Modal-->
-                <div class="modal fade" id="MenuModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalCenterTitle">Ugens Menu</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body text-left">
-                                @using (Html.BeginForm("EditMenu", "Administration", FormMethod.Post, new { @class = "form-horizontal", enctype = "multipart/form-data" }))
-                                {
-                                    <h5 class="text-center">Mandag</h5>
-                                    <div class="form-row">
-                                        <div class="form-group col-md-4">
-                                            <label for="Name" class="control-label">Navn</label>
-                                            @Html.TextBoxFor(model => model.WeeklyMenu.Week[0].Name, new { @class = "form-control" })
-                                        </div>
-                                        <div class="form-group col-md-4">
-                                            <label for="RecipePath" class="control-label">Opskrift</label>
-                                            @Html.TextBoxFor(model => model.WeeklyMenu.Week[0].RecipePath, new { @class = "form-control" })
-                                        </div>
-                                        <div class="form-group col-md-4">
-                                            <label for="ImageFile" class="control-label">Billede</label>
-                                            @Html.TextBoxFor(model => model.WeeklyMenu.Week[0].ImageFile, new { type = "file" })
-                                        </div>
-                                    </div>
-                                    <hr class="col-md-12" />
-                                    <h5 class="text-center">Tirsdag</h5>
-                                    <div class="form-row">
-                                        <div class="form-group col-md-4">
-                                            <label for="Name" class="control-label">Navn</label>
-                                            @Html.TextBoxFor(model => model.WeeklyMenu.Week[1].Name, new { @class = "form-control" })
-                                        </div>
-                                        <div class="form-group col-md-4">
-                                            <label for="RecipePath" class="control-label">Opskrift</label>
-                                            @Html.TextBoxFor(model => model.WeeklyMenu.Week[1].RecipePath, new { @class = "form-control" })
-                                        </div>
-                                        <div class="form-group col-md-4">
-                                            <label for="ImageFile" class="control-label">Billede</label>
-                                            @Html.TextBoxFor(model => model.WeeklyMenu.Week[1].ImageFile, new { type = "file" })
-                                        </div>
-                                    </div>
-                                    <hr class="col-md-12" />
-                                    <h5 class="text-center">Onsdag</h5>
-                                    <div class="form-row">
-                                        <div class="form-group col-md-4">
-                                            <label for="Name" class="control-label">Navn</label>
-                                            @Html.TextBoxFor(model => model.WeeklyMenu.Week[2].Name, new { @class = "form-control" })
-                                        </div>
-                                        <div class="form-group col-md-4">
-                                            <label for="RecipePath" class="control-label">Opskrift</label>
-                                            @Html.TextBoxFor(model => model.WeeklyMenu.Week[2].RecipePath, new { @class = "form-control" })
-                                        </div>
-                                        <div class="form-group col-md-4">
-                                            <label for="ImageFile" class="control-label">Billede</label>
-                                            @Html.TextBoxFor(model => model.WeeklyMenu.Week[2].ImageFile, new { type = "file" })
-                                        </div>
-                                    </div>
-                                    <hr class="col-md-12" />
-                                    <h5 class="text-center">Torsdag</h5>
-                                    <div class="form-row">
-                                        <div class="form-group col-md-4">
-                                            <label for="Name" class="control-label">Navn</label>
-                                            @Html.TextBoxFor(model => model.WeeklyMenu.Week[3].Name, new { @class = "form-control" })
-                                        </div>
-                                        <div class="form-group col-md-4">
-                                            <label for="RecipePath" class="control-label">Opskrift</label>
-                                            @Html.TextBoxFor(model => model.WeeklyMenu.Week[3].RecipePath, new { @class = "form-control" })
-                                        </div>
-                                        <div class="form-group col-md-4">
-                                            <label for="ImageFile" class="control-label">Billede</label>
-                                            @Html.TextBoxFor(model => model.WeeklyMenu.Week[3].ImageFile, new { type = "file" })
-                                        </div>
-                                    </div>
-                                    <hr class="col-md-12" />
-                                    <h5 class="text-center">Fredag</h5>
-                                    <div class="form-row">
-                                        <div class="form-group col-md-4">
-                                            <label for="Name" class="control-label">Navn</label>
-                                            @Html.TextBoxFor(model => model.WeeklyMenu.Week[4].Name, new { @class = "form-control" })
-                                        </div>
-                                        <div class="form-group col-md-4">
-                                            <label for="RecipePath" class="control-label">Opskrift</label>
-                                            @Html.TextBoxFor(model => model.WeeklyMenu.Week[4].RecipePath, new { @class = "form-control" })
-                                        </div>
-                                        <div class="form-group col-md-4">
-                                            <label for="ImageFile" class="control-label">Billede</label>
-                                            @Html.TextBoxFor(model => model.WeeklyMenu.Week[4].ImageFile, new { type = "file" })
-                                        </div>
-                                    </div>
-                                    <hr class="col-md-12" />
-                                    <div class="form-group">
-                                        <div class="text-right">
-                                            <button class="btn btn-info" type="submit" value="Upload">Gem</button>
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Anuller</button>
                                         </div>
                                     </div>

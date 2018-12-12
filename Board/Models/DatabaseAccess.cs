@@ -19,18 +19,21 @@ namespace Board.Models
 
         public static InfoBoardModel GetInfoBoard()
         {
-             InfoBoardModel infoBoard = new InfoBoardModel();
+            InfoBoardModel infoBoard = new InfoBoardModel();
+            EventModel currentEvent = new EventModel();
             QuoteModel quote = new QuoteModel();
             AssemblyModel assembly = new AssemblyModel();
             FridayActivity friday = new FridayActivity();
             List<MealModel> meals = new List<MealModel>();
             using (IDbConnection connection = new SqlConnection(ConString("InfoBoard")))
             {
+                currentEvent = connection.QuerySingle<EventModel>("select * from Event where Id = 1");
                 quote = connection.QuerySingle<QuoteModel>("select * from Quote where Id = 1");
                 assembly = connection.QuerySingle<AssemblyModel>("select * from Assembly where Id = 1");
                 friday = connection.QuerySingle<FridayActivity>("select * from Friday where Id = 1");
                 meals = connection.Query<MealModel>("select * from Menu").ToList();
             }
+            infoBoard.Event = currentEvent;
             infoBoard.WeeklyActivities.Quote = quote;
             infoBoard.WeeklyActivities.Assembly = assembly;
             infoBoard.WeeklyActivities.Friday = friday;
@@ -46,6 +49,10 @@ namespace Board.Models
         {
             using (IDbConnection connection = new SqlConnection(ConString("InfoBoard")))
             {
+                connection.Execute(@"update Event set EventText = @EventText where Id = 1", new
+                {
+                    infoBoard.Event.EventText
+                });
                 connection.Execute(@"update Quote set QuoteText = @QuoteText, QuoteAuthor = @QuoteAuthor where Id = 1", new
                 {
                     infoBoard.WeeklyActivities.Quote.QuoteText,

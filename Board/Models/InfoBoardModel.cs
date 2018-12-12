@@ -21,9 +21,12 @@ namespace Board.Models
             WeeklyActivities = new WeeklyActivitiesModel();
             WeeklyMenu = new WeeklyMenuModel();
             Forecast = new WeatherForecast();
+            Event = new EventModel();
         }
 
         public string CurrentWeek { get; set; }
+
+        public EventModel Event { get; set; }
 
         public WeeklyMenuModel WeeklyMenu
         {

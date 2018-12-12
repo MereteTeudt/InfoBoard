@@ -55,5 +55,12 @@ namespace Board.Controllers
             DatabaseAccess.SetInfoBoard(infoBoardModel);
             return View("Index", infoBoardModel);
         }
+
+        public ActionResult EditEvent(InfoBoardModel infoBoard)
+        {
+            infoBoardModel.Event.EventText = infoBoard.Event.EventText;
+            DatabaseAccess.SetInfoBoard(infoBoardModel);
+            return View("Index", infoBoardModel);
+        }
     }
 }

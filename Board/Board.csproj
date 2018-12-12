@@ -172,6 +172,7 @@
     <Compile Include="Models\APIHelper.cs" />
     <Compile Include="Models\APIData.cs" />
     <Compile Include="Models\DatabaseAccess.cs" />
+    <Compile Include="Models\EventModel.cs" />
     <Compile Include="Models\FridayActivity.cs" />
     <Compile Include="Models\InfoBoardModel.cs" />
     <Compile Include="Models\MealModel.cs" />
