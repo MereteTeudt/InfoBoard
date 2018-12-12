@@ -43,11 +43,10 @@ namespace Board.Controllers
         public ActionResult EditMenu(InfoBoardModel infoBoard)
         {
             string mapPath = Server.MapPath("~/Uploads/");
-            infoBoardModel.WeeklyMenu = infoBoard.WeeklyMenu;
 
             for (int i = 0; i < 5; i++)
             {
-                HttpPostedFileBase imageFile = infoBoardModel.WeeklyMenu.Week[i].ImageFile;
+                HttpPostedFileBase imageFile = infoBoard.WeeklyMenu.Week[i].ImageFile;
                 if (imageFile != null)
                 {
                     infoBoardModel.WeeklyMenu.Week[i].ImagePath = infoBoardModel.UploadImage(imageFile, mapPath);

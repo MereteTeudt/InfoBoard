@@ -19,7 +19,7 @@ namespace Board.Models
 
         public static InfoBoardModel GetInfoBoard()
         {
-            InfoBoardModel infoBoard = new InfoBoardModel();
+             InfoBoardModel infoBoard = new InfoBoardModel();
             QuoteModel quote = new QuoteModel();
             AssemblyModel assembly = new AssemblyModel();
             FridayActivity friday = new FridayActivity();
