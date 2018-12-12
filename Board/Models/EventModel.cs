@@ -10,10 +10,10 @@ namespace Board.Models
         public EventModel()
         {
             EventText = "";
+
             HideImages = "";
         }
-        public string EventText;
-
-        public string HideImages;
+        public string EventText { get; set; }
+        public string HideImages { get; set; }
     }
 }
