@@ -91,18 +91,22 @@
     <div class="col-xl-6 col-lg-12">
         <div class="card Card bg-light">
             <div class="card-body">
-                <h1 class="card-title text-center">Denne Uge</h1>
+                <h3 class="card-title text-center">Denne Uge</h3>
                 <hr />
                 <div class="d-flex flex-wrap text-center">
-                    <div class="col-md-6 col-12 mb-4">
-                        <h5>Morgensamling: </h5>
-                        <h5 class="lead">@Html.DisplayTextFor(model => model.WeeklyActivities.Assembly.AssemblyTheme)</h5>
-                        <img class="rounded mx-auto d-block img-fluid" src="@Url.Content(Model.WeeklyActivities.Assembly.ImagePath)" alt="Card image cap">
+                    <div class="col-md-6 col-12 d-flex justify-content-center flex-wrap">
+                        <h5 class="col-md-12">Morgensamling: </h5>
+                        <h5 class="lead col-md-12">@Html.DisplayTextFor(model => model.WeeklyActivities.Assembly.AssemblyTheme)</h5>
+                        <div class="imgBox d-flex align-items-center">
+                            <img class="rounded mx-auto d-block img-fluid" src="@Url.Content(Model.WeeklyActivities.Assembly.ImagePath)" alt="Card image cap">
+                        </div>
                     </div>
-                    <div class="col-md-6 col-12 pb-1">
-                        <h5>Fredag: </h5>
-                        <h5 class="lead">@Html.DisplayTextFor(model => model.WeeklyActivities.Friday.Name)</h5>
-                        <img class="rounded mx-auto d-block img-fluid" src="@Url.Content(Model.WeeklyActivities.Friday.ImagePath)" alt="Card image cap">
+                    <div class="col-md-6 col-12 d-flex justify-content-center flex-wrap">
+                        <h5 class="col-md-12">Fredag: </h5>
+                        <h5 class="lead col-md-12">@Html.DisplayTextFor(model => model.WeeklyActivities.Friday.Name)</h5>
+                        <div class="imgBox d-flex align-items-center">
+                            <img class="rounded mx-auto d-block img-fluid" src="@Url.Content(Model.WeeklyActivities.Friday.ImagePath)" alt="Card image cap">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -111,33 +115,33 @@
     <div class="col-xl-6 col-lg-12">
         <div class="card Card bg-light">
             <div class="d-flex card-body flex-wrap justify-content-center text-center">
-                <div class="card-text lead col-xl-12">
+                <h3 class="card-title col-xl-12 m-0">
                     Dagens ret:
                     <a href="@Html.DisplayTextFor(model => model.WeeklyMenu.Today.RecipePath)">@Html.DisplayTextFor(model => model.WeeklyMenu.Today.Name)</a>
-                </div>
+                </h3>
                 <hr class="col-xl-11 ml-1" />
-                <div class="col-xl-6 col-md-8 p-2">
-                    <div class="carousel slide carousel-fade" data-ride="carousel">
+                <div class="col-md-6 col-8 p-2 d-flex justify-content-center align-items-center">
+                    <div class="carousel slide carousel-fade imgBox" data-ride="carousel">
                         <div class="carousel-inner col-xl-12 m-0 p-0">
-                            <div id="MondaySlide" class="carousel-item active">
+                            <div id="MondaySlide" class="carousel-item active ">
                                 <img class="d-block w-100 img-thumbnail" src="@Url.Content(Model.WeeklyMenu.Week[0].ImagePath)" alt="First slide">
                             </div>
-                            <div id="TuesdaySlide" class="carousel-item">
+                            <div id="TuesdaySlide" class="carousel-item ">
                                 <img class="d-block w-100 img-thumbnail" src="@Url.Content(Model.WeeklyMenu.Week[1].ImagePath)" alt="Second slide">
-                            </div>
-                            <div id="WednesdaySlide" class="carousel-item">
+                            </div> 
+                            <div id="WednesdaySlide" class="carousel-item ">
                                 <img class="d-block w-100 img-thumbnail" src="@Url.Content(Model.WeeklyMenu.Week[2].ImagePath)" alt="Third slide">
                             </div>
-                            <div id="ThursdaySlide" class="carousel-item">
+                            <div id="ThursdaySlide" class="carousel-item ">
                                 <img class="d-block w-100 img-thumbnail" src="@Url.Content(Model.WeeklyMenu.Week[3].ImagePath)" alt="Fourth slide">
                             </div>
-                            <div id="FridaySlide" class="carousel-item">
+                            <div id="FridaySlide" class="carousel-item ">
                                 <img class="d-block w-100 img-thumbnail" src="@Url.Content(Model.WeeklyMenu.Week[4].ImagePath)" alt="Fifth slide">
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-6 col-lg-12 d-flex flex-wrap p-2 justify-content-center text-center">
+                <div class="col-md-6 col-12 d-flex flex-wrap p-2 justify-content-center text-center">
                     <ul class="list-group col-xl-12 align-self-end p-0">
                         <li class="list-group-item text-center lead list-group-item-secondary">Ugens Menu</li>
                         <li class="list-group-item">
