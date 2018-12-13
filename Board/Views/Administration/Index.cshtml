@@ -98,7 +98,7 @@
                 <li class="list-group-item">
                     <div class="d-flex justify-content-center">
                         <div class="col-md-4 text-left p-2 text-center">
-                            <h2 class="text-uppercase">Tema:</h2>
+                            <h2 class="text-uppercase">Fredag:</h2>
                             <h2 class="text-uppercase">@Html.DisplayTextFor(model => model.WeeklyActivities.Friday.Name)</h2>
                         </div>
                         <div class="col-md-4">
@@ -328,7 +328,16 @@
                     <li class="list-group-item">
                         <div class="d-flex">
                             <div class="col-12">
+                                <h2>Særlig event</h2>
                                 <p>@Html.DisplayTextFor(model => model.Event.EventText) </p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="d-flex">
+                            <div class="col-12">
+                                <h2>Dato til ferie countdown</h2>
+                                <p>@Html.DisplayTextFor(model => model.Event.VacationDate) </p>
                             </div>
                         </div>
                     </li>
@@ -338,7 +347,7 @@
                     <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalCenterTitle">Event</h5>
+                                <h5 class="modal-title" id="exampleModalCenterTitle">Events</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -350,13 +359,17 @@
                                         <label for="EventText" class="col-md-3 control-label">Tekst</label>
                                         @Html.TextBoxFor(model => model.Event.EventText, new { @class = "form-control" })
                                     </div>
+                                    <div class="form-group col-md-9">
+                                        <label for="VacationCountdown" class="col-md-3 control-label">Tekst</label>
+                                        @Html.TextBoxFor(model => model.Event.VacationDate, new { @class = "form-control", type = "datetime-local" })
+                                    </div>
                                     <div class="form-group">
                                         <div class="text-right">
                                             <button class="btn btn-info" type="submit">Gem</button>
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Anuller</button>
                                         </div>
                                     </div>
-                                }
+                                   }
                             </div>
                         </div>
                     </div>

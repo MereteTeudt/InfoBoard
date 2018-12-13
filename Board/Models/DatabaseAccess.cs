@@ -34,6 +34,7 @@ namespace Board.Models
                 meals = connection.Query<MealModel>("select * from Menu").ToList();
             }
             infoBoard.Event = currentEvent;
+            infoBoard.Event.ImageClass = infoBoard.Event.GetImageClass();
             infoBoard.WeeklyActivities.Quote = quote;
             infoBoard.WeeklyActivities.Assembly = assembly;
             infoBoard.WeeklyActivities.Friday = friday;
@@ -49,9 +50,10 @@ namespace Board.Models
         {
             using (IDbConnection connection = new SqlConnection(ConString("InfoBoard")))
             {
-                connection.Execute(@"update Event set EventText = @EventText where Id = 1", new
+                connection.Execute(@"update Event set EventText = @EventText, VacationDate = @VacationDate where Id = 1", new
                 {
-                    infoBoard.Event.EventText
+                    infoBoard.Event.EventText,
+                    infoBoard.Event.VacationDate
                 });
                 connection.Execute(@"update Quote set QuoteText = @QuoteText, QuoteAuthor = @QuoteAuthor where Id = 1", new
                 {

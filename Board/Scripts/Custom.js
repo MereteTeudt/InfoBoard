@@ -1,14 +1,61 @@
 ﻿function startTime() {
     var today = new Date();
+    var day = today.getDay();
+    var date = today.getDate();
+    var month = today.getMonth();
+    var year = today.getFullYear();
     var h = today.getHours();
     var m = today.getMinutes();
     var s = today.getSeconds();
     m = checkTime(m);
     s = checkTime(s);
+
+    var weekday = new Array(7);
+    weekday[0] = "Søndag";
+    weekday[1] = "Mandag";
+    weekday[2] = "Tirsdag";
+    weekday[3] = "Onsdag";
+    weekday[4] = "Torsdag";
+    weekday[5] = "Fredag";
+    weekday[6] = "Lørdag";
+
     document.getElementById('clock').innerHTML =
-        h + ":" + m;
+        "Det er i dag " + weekday[day] + " d. " + date + "/" + month + "-" + year + ". Klokken er " + h + ":" + m;
     var t = setTimeout(startTime, 500);
 }
+
+var dateTimeString = document.getElementById("vacationDate").innerHTML;
+console.log(dateTimeString);
+var date = dateTimeString.substring(0, 2);
+console.log(date);
+var month = dateTimeString.substring(3, 5);
+console.log(month);
+var year = dateTimeString.substring(6, 10);
+console.log(year);
+var time = dateTimeString.substring(11, 19);
+console.log(time);
+var formatDate = year + "-" + month + "-" + date + " " + time;
+console.log(formatDate)
+var countdownDate = new Date(formatDate).getTime();
+console.log(countdownDate);
+var x = setInterval(function () {
+    var now = new Date().getTime();
+    var interval = countdownDate - now;
+
+    var days = Math.floor(interval / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((interval % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((interval % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((interval % (1000 * 60)) / 1000);
+
+    document.getElementById("vacationCountdown").innerHTML = days + "d " + hours + "t "
+        + minutes + "m " + seconds + "s ";
+
+    if (interval < 0) {
+        clearInterval(x);
+        document.getElementById("vacationCountdown").innerHTML = "FERIE!";
+    }
+}, 1000);
+
 function checkTime(i) {
     if (i < 10) { i = "0" + i }; 
     return i;

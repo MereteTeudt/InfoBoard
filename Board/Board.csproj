@@ -264,10 +264,11 @@
     <Content Include="Images\aspit_aspin_logo_aspit.png" />
     <Content Include="Images\default-image.jpg" />
     <Content Include="Images\friFredag.jpg" />
-    <Content Include="Images\InfoBoardFood\RecipeOne.jpeg" />
-    <Content Include="Images\InfoBoardFood\RecipeThree.jpeg" />
-    <Content Include="Images\InfoBoardFood\RecipeTwo.jpg" />
     <Content Include="Images\aspITlogo.png" />
+    <Content Include="Images\InfoBoardFood\Boller-i-Karry-300x300.jpg" />
+    <Content Include="Images\InfoBoardFood\exps5006_C0708C127A.jpg" />
+    <Content Include="Images\InfoBoardFood\Lamb-Tomato-Parpardelle-Ragout-1024x1024.jpg" />
+    <Content Include="Images\InfoBoardFood\PerfectPortion-Lasagna-1-300x300.jpg" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />

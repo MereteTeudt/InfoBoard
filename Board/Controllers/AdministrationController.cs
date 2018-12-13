@@ -59,6 +59,7 @@ namespace Board.Controllers
         public ActionResult EditEvent(InfoBoardModel infoBoard)
         {
             infoBoardModel.Event.EventText = infoBoard.Event.EventText;
+            infoBoardModel.Event.VacationDate = infoBoard.Event.VacationDate;
             DatabaseAccess.SetInfoBoard(infoBoardModel);
             return View("Index", infoBoardModel);
         }

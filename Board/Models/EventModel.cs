@@ -10,10 +10,25 @@ namespace Board.Models
         public EventModel()
         {
             EventText = "";
-
-            HideImages = "";
+            MarginClass = "BigMarginClass";
+            VacationDate = DateTime.Now.Date;
         }
         public string EventText { get; set; }
-        public string HideImages { get; set; }
+        public string ImageClass { get; set; }
+
+        public string MarginClass { get; set; }
+
+        public DateTime VacationDate { get; set; }
+
+        public string GetImageClass()
+        {
+            string hideClass = "";
+            if(!string.IsNullOrWhiteSpace(EventText))
+            {
+                hideClass = "hidePictures";
+                MarginClass = "SmallBodyMargin";
+            }
+            return hideClass;
+        }
     }
 }
