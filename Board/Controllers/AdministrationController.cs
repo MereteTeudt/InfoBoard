@@ -46,6 +46,8 @@ namespace Board.Controllers
 
             for (int i = 0; i < 5; i++)
             {
+                infoBoard.WeeklyMenu.Week[i].ImagePath = infoBoardModel.WeeklyMenu.Week[i].ImagePath;
+                infoBoardModel.WeeklyMenu.Week[i] = infoBoard.WeeklyMenu.Week[i];
                 HttpPostedFileBase imageFile = infoBoard.WeeklyMenu.Week[i].ImageFile;
                 if (imageFile != null)
                 {
