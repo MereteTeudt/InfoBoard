@@ -23,11 +23,11 @@ body {
 }
 
 .BigBodyMargin {
-    margin-top: 6%;
+    margin-top: 10%;
 }
 
 .SmallBodyMargin {
-    margin-top: 75px;
+    margin-top: 90px;
 }
 
 .Card {
@@ -74,8 +74,8 @@ a {
         display: none !important;
     }
 
-    .BodyMargin {
-        margin-top: 4%;
+    .BigBodyMargin {
+        margin-top: 85px;
     }
     .imgBox {
         width: 250px;

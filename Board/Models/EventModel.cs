@@ -12,6 +12,7 @@ namespace Board.Models
             EventText = "";
             MarginClass = "BigMarginClass";
             VacationDate = DateTime.Now.Date;
+            DaysForCountdown = 3;
         }
         public string EventText { get; set; }
 
@@ -19,37 +20,60 @@ namespace Board.Models
 
         public string DisplayInfoClass { get; set; }
 
+        public string DisplayCountdownClass { get; set; }
+
         public string DisplayInfoBox { get; set; }
 
         public string MarginClass { get; set; }
 
         public DateTime VacationDate { get; set; }
 
+        public int DaysForCountdown { get; set; }
+
         public string GetImageClass()
         {
             string hideClass = "";
-            if(VacationDate != null || !string.IsNullOrWhiteSpace(EventText))
+            if(SetCountdown() || !string.IsNullOrWhiteSpace(EventText))
             {
                 hideClass = "hidePictures";
                 MarginClass = "SmallBodyMargin";
                 DisplayInfoBox = "";
-                SetDisplay();
+                SetInfoDisplay();
             }
             else
             {
                 DisplayInfoBox = "d-none";
+                MarginClass = "BigBodyMargin";
             }
             return hideClass;
         }
-        public void SetDisplay()
+
+        public void SetInfoDisplay()
         {
             if(string.IsNullOrWhiteSpace(EventText))
             {
                 DisplayInfoClass = "d-none";
+
             }
             else
             {
                 DisplayInfoClass = "";
+
+            }
+        }
+
+        public bool SetCountdown()
+        {
+            DateTime startCountdown = VacationDate.AddDays(-DaysForCountdown);
+            if(startCountdown == DateTime.Today)
+            {
+                DisplayCountdownClass = "";
+                return true;
+            }
+            else
+            {
+                DisplayCountdownClass = "d-none";
+                return false;
             }
         }
     }

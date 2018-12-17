@@ -57,7 +57,7 @@
                             <img src="~/Images/aspit_aspin_logo_aspit.png" width="50" height="50" alt="">
                         </a>
                     </div>
-                    <h4 id="clock" class="navbar-text navbar-right text-light mb-0 text-center"></h4>
+                    <h5 id="clock" class="navbar-text navbar-right text-light mb-0 text-center"></h5>
                     <div class="navbar-right">
                         <a class="navbar-brand m-1" href="@Url.Action("Index", "Home")">
                             <img src="~/Images/aspit_aspin_logo_aspin.png" width="50" height="50" alt="">
@@ -80,7 +80,7 @@
                 <h5>Særlig information</h5>
                 <p class="m-0">@Html.DisplayTextFor(model => model.Event.EventText)</p>
             </div>
-            <div id="countdownContainer" class="col-lg-4 col-md-6">
+            <div id="countdownContainer" class="@Html.DisplayTextFor(model => model.Event.DisplayCountdownClass) col-lg-4 col-md-6">
                 <h5>Countdown</h5>
                 <div class="d-flex justify-content-center">
                     <p class="col-sm-6 col-md-8 bg-light rounded py-2">

@@ -338,6 +338,7 @@
                             <div class="col-12">
                                 <h2>Dato til ferie countdown</h2>
                                 <p>@Html.DisplayTextFor(model => model.Event.VacationDate) </p>
+                                <p>Countdown starter @Html.DisplayTextFor(model => model.Event.DaysForCountdown) før</p>
                             </div>
                         </div>
                     </li>
@@ -360,8 +361,12 @@
                                         @Html.TextBoxFor(model => model.Event.EventText, new { @class = "form-control" })
                                     </div>
                                     <div class="form-group col-md-9">
-                                        <label for="VacationCountdown" class="col-md-3 control-label">Tekst</label>
+                                        <label for="VacationCountdown" class="col-md-3 control-label">Feriedato</label>
                                         @Html.TextBoxFor(model => model.Event.VacationDate, new { @class = "form-control", type = "datetime-local" })
+                                    </div>
+                                    <div class="form-group col-md-9">
+                                        <label for="DaysForCountdown" class="col-md-3 control-label">Antal dage før countdown skal starte</label>
+                                        @Html.TextBoxFor(model => model.Event.DaysForCountdown, new { @class = "form-control", type = "datetime-local" })
                                     </div>
                                     <div class="form-group">
                                         <div class="text-right">
@@ -369,7 +374,7 @@
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Anuller</button>
                                         </div>
                                     </div>
-                                   }
+                                }
                             </div>
                         </div>
                     </div>
