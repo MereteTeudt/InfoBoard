@@ -14,7 +14,12 @@ namespace Board.Models
             VacationDate = DateTime.Now.Date;
         }
         public string EventText { get; set; }
+
         public string ImageClass { get; set; }
+
+        public string DisplayInfoClass { get; set; }
+
+        public string DisplayInfoBox { get; set; }
 
         public string MarginClass { get; set; }
 
@@ -23,12 +28,29 @@ namespace Board.Models
         public string GetImageClass()
         {
             string hideClass = "";
-            if(!string.IsNullOrWhiteSpace(EventText))
+            if(VacationDate != null || !string.IsNullOrWhiteSpace(EventText))
             {
                 hideClass = "hidePictures";
                 MarginClass = "SmallBodyMargin";
+                DisplayInfoBox = "";
+                SetDisplay();
+            }
+            else
+            {
+                DisplayInfoBox = "d-none";
             }
             return hideClass;
+        }
+        public void SetDisplay()
+        {
+            if(string.IsNullOrWhiteSpace(EventText))
+            {
+                DisplayInfoClass = "d-none";
+            }
+            else
+            {
+                DisplayInfoClass = "col-3";
+            }
         }
     }
 }

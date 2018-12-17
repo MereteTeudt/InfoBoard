@@ -9,6 +9,18 @@
     var s = today.getSeconds();
     m = checkTime(m);
     s = checkTime(s);
+    if (date < 10) {
+        date = "0" + date;
+    }
+    if (month < 10) {
+        month = "0" + month;
+    }
+    if (h < 10) {
+        h = "0" + h;
+    }
+    if (m < 10) {
+        m = "0" + m;
+    }
 
     var weekday = new Array(7);
     weekday[0] = "Søndag";
@@ -24,38 +36,38 @@
     var t = setTimeout(startTime, 500);
 }
 
+var htmlCountdown = document.getElementById("countdownContainer");
 var dateTimeString = document.getElementById("vacationDate").innerHTML;
-console.log(dateTimeString);
-var date = dateTimeString.substring(0, 2);
-console.log(date);
-var month = dateTimeString.substring(3, 5);
-console.log(month);
-var year = dateTimeString.substring(6, 10);
-console.log(year);
-var time = dateTimeString.substring(11, 19);
-console.log(time);
-var formatDate = year + "-" + month + "-" + date + " " + time;
-console.log(formatDate)
-var countdownDate = new Date(formatDate).getTime();
-console.log(countdownDate);
-var x = setInterval(function () {
-    var now = new Date().getTime();
-    var interval = countdownDate - now;
+if (dateTimeString) {
+    htmlCountdown.setAttribute('class', "col-3");
+    var date = dateTimeString.substring(0, 2);
+    var month = dateTimeString.substring(3, 5);
+    var year = dateTimeString.substring(6, 10);
+    var time = dateTimeString.substring(11, 19);
+    var formatDate = year + "-" + month + "-" + date + " " + time;
+    var countdownDate = new Date(formatDate).getTime();
+    var x = setInterval(function () {
+        var now = new Date().getTime();
+        var interval = countdownDate - now;
 
-    var days = Math.floor(interval / (1000 * 60 * 60 * 24));
-    var hours = Math.floor((interval % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    var minutes = Math.floor((interval % (1000 * 60 * 60)) / (1000 * 60));
-    var seconds = Math.floor((interval % (1000 * 60)) / 1000);
+        var days = Math.floor(interval / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((interval % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((interval % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((interval % (1000 * 60)) / 1000);
 
-    document.getElementById("vacationCountdown").innerHTML = days + "d " + hours + "t "
-        + minutes + "m " + seconds + "s ";
+        document.getElementById("vacationCountdown").innerHTML = days + "d " + hours + "t "
+            + minutes + "m " + seconds + "s ";
 
-    if (interval < 0) {
-        clearInterval(x);
-        document.getElementById("vacationCountdown").innerHTML = "FERIE!";
-    }
-}, 1000);
+        if (interval < 0) {
+            clearInterval(x);
+            document.getElementById("vacationCountdown").innerHTML = "FERIE!";
+        }
+    }, 1000);
+}
+else {
 
+    htmlCountdown.setAttribute('class', "d-none");
+}
 function checkTime(i) {
     if (i < 10) { i = "0" + i }; 
     return i;

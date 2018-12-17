@@ -74,17 +74,21 @@
     </div>
 
     <hr />
-    <div class="lead text-center bg-secondary text-light border-top border-bottom border-secondary w-100 p-3 mt-4">
-        <h5>Særlig information</h5>
-        <p class="m-0">@Html.DisplayTextFor(model => model.Event.EventText)</p>
-        <div>
-            <h5>Countdown</h5>
-            <div class="d-flex justify-content-center">
-                <p class="col-2 bg-light rounded py-2">
-                    <span class="text-danger font-weight-bold w-100" id="vacationCountdown"></span>
-                </p>
+    <div class="@Html.DisplayTextFor(model => model.Event.DisplayInfoBox)">
+        <div class="lead text-center bg-secondary text-light border-top border-bottom border-secondary w-100 p-3 mt-4 d-flex justify-content-center">
+            <div class="@Html.DisplayTextFor(mode => mode.Event.DisplayInfoClass)">
+                <h5>Særlig information</h5>
+                <p class="m-0">@Html.DisplayTextFor(model => model.Event.EventText)</p>
             </div>
-            <p>Ferie d. <span id="vacationDate">@Html.DisplayTextFor(model => model.Event.VacationDate)</span></p>
+            <div id="countdownContainer" class="col-3">
+                <h5>Countdown</h5>
+                <div class="d-flex justify-content-center">
+                    <p class="col-5 bg-light rounded py-2">
+                        <span class="text-danger font-weight-bold w-100" id="vacationCountdown"></span>
+                    </p>
+                </div>
+                <p>Ferie d. <span id="vacationDate">@Html.DisplayTextFor(model => model.Event.VacationDate)</span></p>
+            </div>
         </div>
     </div>
 
