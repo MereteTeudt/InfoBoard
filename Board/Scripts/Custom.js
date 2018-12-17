@@ -39,7 +39,7 @@
 var htmlCountdown = document.getElementById("countdownContainer");
 var dateTimeString = document.getElementById("vacationDate").innerHTML;
 if (dateTimeString) {
-    htmlCountdown.setAttribute('class', "col-lg-3");
+    htmlCountdown.setAttribute('class', "col-lg-4 col-md-6");
     var date = dateTimeString.substring(0, 2);
     var month = dateTimeString.substring(3, 5);
     var year = dateTimeString.substring(6, 10);
