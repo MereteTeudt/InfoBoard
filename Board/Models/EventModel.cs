@@ -49,7 +49,7 @@ namespace Board.Models
             }
             else
             {
-                DisplayInfoClass = "col-3";
+                DisplayInfoClass = "";
             }
         }
     }

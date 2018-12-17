@@ -32,14 +32,14 @@
     weekday[6] = "Lørdag";
 
     document.getElementById('clock').innerHTML =
-        "Det er i dag " + weekday[day] + " d. " + date + "/" + month + "-" + year + ". Klokken er " + h + ":" + m;
+        weekday[day] + " d. " + date + "/" + month + "-" + year + "<br>"  + h + ":" + m;
     var t = setTimeout(startTime, 500);
 }
 
 var htmlCountdown = document.getElementById("countdownContainer");
 var dateTimeString = document.getElementById("vacationDate").innerHTML;
 if (dateTimeString) {
-    htmlCountdown.setAttribute('class', "col-3");
+    htmlCountdown.setAttribute('class', "col-lg-3");
     var date = dateTimeString.substring(0, 2);
     var month = dateTimeString.substring(3, 5);
     var year = dateTimeString.substring(6, 10);

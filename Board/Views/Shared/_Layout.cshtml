@@ -51,13 +51,13 @@
                         <img class="img-fluid" src="~/Images/AspitImages/15309---058.jpg" />
                     </div>
                 </div>
-                <div class="col-12 navbar shadow navbar-default py-0 px-5">
+                <div class="col-12 navbar shadow navbar-default py-0">
                     <div class="navbar-left">
                         <a class="navbar-brand m-1" href="@Url.Action("Index", "Home")">
                             <img src="~/Images/aspit_aspin_logo_aspit.png" width="50" height="50" alt="">
                         </a>
                     </div>
-                    <h2 id="clock" class="navbar-text navbar-right text-light mb-0"></h2>
+                    <h4 id="clock" class="navbar-text navbar-right text-light mb-0 text-center"></h4>
                     <div class="navbar-right">
                         <a class="navbar-brand m-1" href="@Url.Action("Index", "Home")">
                             <img src="~/Images/aspit_aspin_logo_aspin.png" width="50" height="50" alt="">
@@ -75,15 +75,15 @@
 
     <hr />
     <div class="@Html.DisplayTextFor(model => model.Event.DisplayInfoBox)">
-        <div class="lead text-center bg-secondary text-light border-top border-bottom border-secondary w-100 p-3 mt-4 d-flex justify-content-center">
-            <div class="@Html.DisplayTextFor(mode => mode.Event.DisplayInfoClass)">
+        <div class="lead text-center bg-secondary text-light border-top border-bottom border-secondary w-100 p-3 p-5 mt-4 d-flex justify-content-center">
+            <div class="@Html.DisplayTextFor(mode => mode.Event.DisplayInfoClass) col-lg-3">
                 <h5>Særlig information</h5>
                 <p class="m-0">@Html.DisplayTextFor(model => model.Event.EventText)</p>
             </div>
-            <div id="countdownContainer" class="col-3">
+            <div id="countdownContainer" class="col-lg-3">
                 <h5>Countdown</h5>
                 <div class="d-flex justify-content-center">
-                    <p class="col-5 bg-light rounded py-2">
+                    <p class="col-6 bg-light rounded py-2">
                         <span class="text-danger font-weight-bold w-100" id="vacationCountdown"></span>
                     </p>
                 </div>
